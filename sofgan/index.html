@@ -40,7 +40,7 @@
         <a href="http://www.yu-jingyi.com/cv/"> Jingyi Yu</a>
     </p>
     <div class="btn-group" role="group" aria-label="Top menu">
-        <a class="btn btn-primary" href="https://arxiv.org/abs/2007.03780">Paper (draf)</a>
+        <a class="btn btn-primary" href="https://arxiv.org/abs/2007.03780">Paper</a>
         <a class="btn btn-primary" href="https://github.com/apchenstu/sofgan">Code</a>
     </div>
 </div>
@@ -48,7 +48,7 @@
 <div class="container">
     <div class="section">
         <div class="vcontainer">
-            <iframe class='video' src="https://www.youtube.com/embed/yde3BNQMmvs" frameborder="0"
+            <iframe class='video' src="https://youtu.be/xig8ZA3DVZ8" frameborder="0"
                     allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
                     allowfullscreen></iframe>
         </div>
@@ -66,6 +66,7 @@
         <p>
             First row: our decoupled representation allows explicit control over pose, shape and texture styles. Starting from the source image, we explicitly change it's head pose (2nd image), facial/hair contour (3rd image) and texture styles. Second row: interactive image generation from incomplete segmaps. We allow users to gradually add parts to the segmap and generate colorful images on-the-fly.
         </p>
+
         <div class="row align-items-center">
             <div class="col justify-content-center text-center">
                 <img src="img/teaser.png" style="width:100%; margin-right:-10px; margin-top:-10px;">
@@ -73,27 +74,114 @@
     </div>
 
     <div class="section">
-        <div class="vcontainer">
-            <iframe class='video' src="img/drawing.mp4" frameborder="0"
-                    allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
-                    allowfullscreen></iframe>
-        </div>
-        <p>
-            we can also train our model  with "Two dimensions" style and testing  in real-time. 
-        </p>
+        <h2>Applications</h2>
         <hr>
+        <p align="center" >
+            The first two videos demonstrate the regional style adjustment conditing on specify semantic</br>
+            segmentation map. One of the key features of our SIW-StyleGAN is semantic-level style controlling.</br> 
+            Benefiting from the StyleConv blocks and style mixing training strategy, we could separately</br> 
+            control the style for each semantic region.
+        </p>
+
+
+        <div class="vcontainer">
+            <video src="img/regional_style.mp4" poster="img/regional_style.png"  width="960" height="540" controls preload></video>
+        </div>
+        <p align="center">
+            <b>Video 1:</b> Regional style adjustment
+        </p>
+        <br>
+
+        <div class="vcontainer">
+            <video src="img/style_transfer.mp4" poster="img/style_transfer.png"  width="960" height="540" controls preload></video>
+        </div>
+        <p align="center">
+            <b>Video 2:</b> Style transfer
+        </p>
+        <br>
+
+        <p align="center" >
+            Under our generation framework, we can generate free-viewpoint portrait images</br>
+            from geometric samples or real images by changing the camera pose. our SOF is</br>
+            trained with multi-view semantic segmentation maps, the geometric projection</br> 
+            constraint between views is encoded in the SOF, which enables our method to</br> 
+            keep shape and expression consistent when changing the viewpoint.
+        </p>
+
+        <div class="vcontainer">
+            <video src="img/fvv.mp4" poster="img/fvv.png"  width="960" height="540" controls preload></video>
+        </div>
+        <p align="center">
+            <b>Video 3a:</b> Free view point rendering and shape morphing
+        </p>
+        <br>
+
+        <div class="vcontainer">
+            <video src="img/fvv2.mp4" poster="img/fvv2.png"  width="960" height="540" controls preload></video>
+        </div>
+        <p align="center">
+            <b>Video 3b:</b> Free view point rendering and shape morphing
+        <br>
+
+        <p align="center" >
+            we collect a video clip from Internet and generate segmentation maps for each</br>
+            frame with a pre-trained face parser. Our method can preserve texture style and</br>
+            shape consistency on various poses and expressions without any temporal regularization.
+        </p>
+
+        <div class="vcontainer">
+            <video src="img/style_transfer.mp4" poster="img/style_transfer.png"  width="960" height="540" controls preload></video>
+        </div>
+        <p align="center">
+            <b>Video 4:</b> Animated video sequences
+        </p>
+        <br>  
+
+        <p align="center" >
+            Our method allow users to gradually add parts to the segmap and generate colorful images on-the-fly.
+        </p>
+
+        <div class="vcontainer">
+            <video src="img/drawing.mp4" poster="img/drawing.png"  width="960" height="540" controls preload></video>
+        </div>
+        <p align="center">
+            <b>Video 5a:</b> Generation from drawing
+        </p>
+        <br>  
+
+        <div align="center" class="vcontainer">
+            <video src="img/drawing2.mp4" width="720" height="544" controls preload></video>
+        </div>
+        <p align="center">
+            <b>Video 5b:</b> Generation from drawing
+        </p>
+
     </div>
+
+
 
     <div class="section">
         <h2>Bibtex</h2>
         <hr>
         <div class="bibtexsection">
-            @article{chen2020free,
-              title={A Free Viewpoint Portrait Generator with Dynamic Styling},
-              author={Chen, Anpei and Liu, Ruiyang and Xie, Ling and Zhang, Chen and 
-              Hao, Su and Yu, Jingyi},
-              journal={arXiv preprint arXiv:2007.03780},
-              year={2020}
+            @article{sofgan,
+            author = {Chen, Anpei and Liu, Ruiyang and Xie, Ling and Chen, Zhang and 
+            Su, Hao and Yu Jingyi},
+            title = {SofGAN: A Portrait Image Generator with Dynamic Styling},
+            year = {2021},
+            issue_date = {July 2021},
+            publisher = {Association for Computing Machinery},
+            address = {New York, NY, USA},
+            volume = {41},
+            number = {1},
+            issn = {xxx},
+            url = {https://doi.org/10.1145/3470848},
+            doi = {10.1145/3470848},
+            journal = {ACM Trans. Graph.},
+            month = July,
+            articleno = {1},
+            numpages = {26},
+            keywords = {Image editing, Generative adversarial networks}
             }
         </div>
     </div>
