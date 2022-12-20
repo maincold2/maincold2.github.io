@@ -16,12 +16,18 @@ footer {
 .authors {
   font-size: 20px;
 }
-/*.container {
-  max-width: 768px;
-}*/
-.container {
-  max-width: 1000px;
+.title {
+  padding-top: 40px;
+  padding-bottom: 20px;
+  text-align: center;
+  background-color: #e0f0ff;
 }
+.container {
+  max-width: 768px;
+}
+/* .container {
+  max-width: 1000px;
+} */
 p {
   font-size: 16px;
   /*padding-bottom: 20px;*/
@@ -36,7 +42,10 @@ s2 {
     align: center;
     font-size: 36px;
 }
-
+s3{
+  text-align: start;
+  font-size: 32px;
+}
 .jumbotron{
     text-align: center;
 }
@@ -92,7 +101,7 @@ s2 {
 
 .bibtexsection {
   font-family: "Courier",monospace;
-  font-size:16px;
+  font-size:12px;
   white-space:pre;
   background-color: #f4f4f4;
       margin-left: auto;
