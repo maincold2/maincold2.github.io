@@ -21,10 +21,10 @@
 </head>
 
 <body>
-<div class="jumbotron jumbotron-fluid">
+<div class="title">
     <div class="container"></div>
-    <h1 class="nerf_title_v2">FFNeRV</h1>
-   <h2 class="nerf_subheader_v2">Flow-Guided Frame-Wise Neural Representations for Videos</h2>
+    <s2>FFNeRV</s2>
+   <h3 class="nerf_subheader_v2">Flow-Guided Frame-Wise Neural Representations for Videos</h2>
         <!-- <h3 class="nerf_subheader_v2">ECCV 2022 (scores: 1, 1, 1)</h3> -->
            <!-- <p class="abstract">A compact and efficent scene representation</p> -->
     <hr>
@@ -32,17 +32,21 @@
         <!-- <a href="https://apchenstu.github.io/"> Anpei Chen*</a>, -->
         <a href="https://maincold2.github.io/"> Joo Chan Lee</a>,
         <a> Daniel Rho</a>,
-        <a href="https://iris.skku.edu"> Jong Hwan Ko*</a>,
-        <a href="https://silverbottlep.github.io/"> Eunbyung Park*</a>
+        <a href="https://iris.skku.edu"> Jong Hwan Ko<sup>†</sup></a>,
+        <a href="https://silverbottlep.github.io/"> Eunbyung Park<sup>†</sup></a>
 
     </p>
+    <p class="authors">
+        Sungkyunkwan University
+    </p>
     
-    <div class="nerf_equal_v2"><span class="text-span_nerf">*</span><span class="text-span_nerf_star">*</span>Denotes Corresponding Authors</div>
+    
+    <div class="nerf_equal_v2"><span class="text-span_nerf">*</span><span class="text-span_nerf_star"></span><sup>†</sup> Corresponding Authors</div>
     
     </br></br>
     <div class="btn-group" role="group" aria-label="Top menu">
-        <a class="btn" href="">Paper</a>
-        <a class="btn" href="">Code</a>
+        <a class="btn" href="">[Paper]</a>
+        <a class="btn" href="">[Code]</a>
         <!-- <a class="btn btn-primary" href="review.pdf">Review</a>
         <a class="btn btn-primary" href="rebuttal.pdf">Rebuttal</a>
         <a class="btn btn-primary" href="meta-review.pdf">Meta-review</a> -->
@@ -56,8 +60,26 @@
 
 <!--<hr>-->
     </br></br>
-    <div data-anchor="slide1" class="section nerf_section">
-        <div class="grey_container w-container">
+    <div data-anchor="slide1" class="section">
+        <div class="container">
+            <s3>Overview</s3>
+            <hr>
+            <div class="w-slide">
+                <div class="div-block-9">
+                    <div class="video_class w-embed">
+                        <video  width=100% height=100% autoplay muted controls loop preload="metadata">
+                          <source src="video/ready_demo.mp4" type="video/mp4">
+                          Your browser does not support the video tag.
+                        </video>
+                    </div>
+                    <div class="video_class mobile w-embed">
+                        <video  width=100% height=100% muted controls loop preload="metadata">
+                          <source src="video/ready_demo.mp4" type="video/mp4">
+                          Your browser does not support the video tag.
+                        </video>
+                    </div>
+                </div>
+            </div>
             <h2 class="grey-heading_nerf">
                 Abstract
             </h2>
@@ -105,19 +127,33 @@
 
 
 
-    </br></br>
+    <!-- </br></br> -->
     <div class="section">
-        <s2>Performance</s2>
+        <div class="container">
+        <s3>Performance</s3>
         <hr>
         <h2 class="grey-heading_nerf">
                 Video Representation
         </h2>
-        <!-- <p class="paragraph-3 nerf_text">
-            Given a set of multi-view input images with known camera poses,
-            our tensorial radiance field is optimized per scene via gradient descent,
-            minimizing an L2 rendering loss, using only the ground truth pixel colors as supervision.
-        </p> -->
-        <div class="w-slide">
+
+        <p class="paragraph-3 nerf_text">
+            The square area (a) in the following figure is the background and appears constantly in the neighboring frames.
+            Although the independent frame misses this faint part, the aggregated frame captures it by referencing neighboring independent frames.
+            The network adds these missing fine details to the independent frame by retracting those details from nearby frames, as shown in the weight map, in order to improve the quality of the final output.
+            On the other hand, part (b) contains a rapidly moving object, so that the edge of it is blurred when aggregating multiple frames.
+            Hence, the weight pixels corresponding to the part are large for the independent frame.
+            Through the compatibility of the independent and aggregated frames, our approach assures high performance.
+        </p>
+        <div class="columns-5 w-row">
+            <img src="img/fig_rep1.png" style="width:90%; margin-right:0px; margin-top:0px;">
+        </div>
+        <p class="paragraph-3 nerf_text">
+            FFNeRV outperforms other frame-wise methods for video representation.
+        </p>
+        <div class="columns-5 w-row">
+            <img src="img/fig_rep2.png" style="width:90%; margin-right:0px; margin-top:0px;">
+        </div>
+        <!-- <div class="w-slide">
               <div class="div-block-9">
                   <div class="video_class w-embed">
                       <video  width=100% height=100% autoplay muted controls loop preload="metadata" poster="video/poster/train_process.jpg">
@@ -132,7 +168,7 @@
                       </video>
                   </div>
               </div>
-          </div><!--  training process -->
+          </div> training process -->
     
         <!-- <p class="paragraph-3 nerf_text">
             Note that, unlike concurrent works <a href="https://alexyu.net/plenoxels/"> Plenoxels</a>
@@ -144,17 +180,15 @@
         <h2 class="grey-heading_nerf">
             Video Frame Interpolation
         </h2>
-        <!-- <p class="paragraph-3 nerf_text">
-            In contrast to previous works that directly reconstruct voxels,
-            our tensor factorization reduces space complexity from O(n<sup>3</sup>) to O(n) (with CP) or O(n<sup>2</sup>) (with VM),
-            significantly lowering memory footprint.
-        </p> -->
+        <p class="paragraph-3 nerf_text">
+            FFNeRV outperforms other frame-wise methods for video frame interpolation.
+        </p>
     
         <div class="columns-5 w-row">
-            <img src="img/fig_intp1.png" style="width:100%; margin-right:0px; margin-top:0px;">
+            <img src="img/fig_intp1.png" style="width:90%; margin-right:0px; margin-top:0px;">
         </div>
         <div class="columns-5 w-row">
-            <img src="img/fig_intp2.png" style="width:100%; margin-right:0px; margin-top:0px;">
+            <img src="img/fig_intp2.png" style="width:90%; margin-right:0px; margin-top:0px;">
         </div>
     
         <!-- <p class="paragraph-3 nerf_text">
@@ -164,23 +198,23 @@
         <h2 class="grey-heading_nerf">
             Video Compression
         </h2>
+        <p class="paragraph-3 nerf_text">
+            We present the effectiveness of FFNeRV for a major video task, video compression, comparing with state-of-the-arts methods on the UVG dataset.
+            Even without pruning, FFNeRV outperforms widely-used standard video codecs and neural video representations and performs on par with state-of-the-art video compression algorithms.
+        </p>
         <div class="columns-5 w-row">
             <img src="img/fig_comp.png" style="width:50%; margin-right:0px; margin-top:0px;">
         </div>
-        <!-- <p class="paragraph-3 nerf_text">
-             Our approach can also achieve high-quality radiance field reconstruction
-             for 360<sup>o</sup> objects and forward-facing scenes.
-             All results without compression are available at <a href="https://1drv.ms/u/s!Ard0t_p4QWIMgQ2qSEAs7MUk8hVw?e=lwKlme/"> OneDrive</a>.
-        </p> -->
 
 <!--        <style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style></div>-->
         
-    
+<!--     
             <div class="w-slider-arrow-left"><div class="w-icon-slider-left"></div></div>
                     <div class="w-slider-arrow-right"><div class="w-icon-slider-right"></div></div>
                     <div class="nerf_slide_nav w-slider-nav w-slider-nav-invert w-round"></div></div>
             </div>
         </div>
+        </div> -->
 
 
         
@@ -236,28 +270,28 @@
 <!--        </div>-->
 
         <!-- </br></br> -->
-<!--    <div class="section">-->
-        <!-- <s2>Bibtex</s2>
+   <div class="section">
+    <div class="container"> 
+        <s3>Bibtex</s3>
         <hr>
         <div class="bibtexsection">
-            @INPROCEEDINGS{Chen2022ECCV,
-              author = {Anpei Chen and Zexiang Xu and Andreas Geiger and Jingyi Yu and Hao Su},
-              title = {TensoRF: Tensorial Radiance Fields},
-              booktitle = {European Conference on Computer Vision (ECCV)},
-              year = {2022}
+            @article{lee2022ffnerv,
+                title={FFNeRV: Flow-Guided Frame-Wise Neural Representations for Videos},
+                author={Lee, Joo Chan and Rho, Daniel and Ko, Jong Hwan and Park, Eunbyung},
+                journal={arXiv preprint arXiv:},
+                year={2022}
             }
-        </div> -->
-<!--    </div>-->
-    <!-- </div>
+        </div>
+   </div>
+    </div>
     <hr>
 
     <footer>
-        <p>This website is partially borrowed from NeRF.
-            Send feedback and questions to <a href="https://apchenstu.github.io/">Anpei Chen</a></p>
+        <p>This website is partially borrowed from <a href="https://apchenstu.github.io/TensoRF/">TensoRF</a>.
     </footer>
 </div>
 
-
+<!-- 
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
         integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
         crossorigin="anonymous"></script>
@@ -275,4 +309,3 @@
 
 </body>
 </html>
-
