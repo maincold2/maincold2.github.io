@@ -68,9 +68,9 @@
             </h2>
             <img src="img/fig_abs.png" style="width:45%; margin-left: 10px; margin-right:25px; margin-top:0px; float:right">
             <p class="paragraph-3 nerf_text">
-                Neural representations have shown a remarkable capability of representing, generating, and manipulating various forms of signals. For videos, however, mapping pixel-wise coordinates to their quantities has shown relatively low compression performance and slow convergence and inference speed (<b>(a)</b>).
-                Frame-wise video representation, which maps a temporal coordinate to its entire frame (<b>(b)</b>), has recently emerged as an alternative method to represent videos, improving compression rates and encoding speed. While promising, it has still failed to reach the performance of state-of-the-art video compression algorithms.
-                In this work, we propose FFNeRV (<b>(c)</b>), a novel method for incorporating flow information into frame-wise representations to exploit the temporal redundancy across the frames in videos inspired by the standard video codecs. Furthermore, we introduce a fully convolutional architecture, enabled by one-dimensional temporal grids, improving the continuity of spatial features.
+                Neural representations have shown a remarkable capability of representing, generating, and manipulating various forms of signals. For videos, however, mapping pixel-wise coordinates to their quantities has shown relatively low compression performance and slow convergence and inference speed <b>(a)</b>.
+                Frame-wise video representation, which maps a temporal coordinate to its entire frame <b>(b)</b>, has recently emerged as an alternative method to represent videos, improving compression rates and encoding speed. While promising, it has still failed to reach the performance of state-of-the-art video compression algorithms.
+                In this work, we propose FFNeRV <b>(c)</b>, a novel method for incorporating flow information into frame-wise representations to exploit the temporal redundancy across the frames in videos inspired by the standard video codecs. Furthermore, we introduce a fully convolutional architecture, enabled by one-dimensional temporal grids, improving the continuity of spatial features.
             </p>
             <p class="paragraph-3 nerf_text">
                 Experimental results show that FFNeRV yields the best performance for video compression and frame interpolation among the methods using frame-wise representations or neural fields. To reduce the model size even further, we devise a more compact convolutional architecture using the group and pointwise convolutions. With all other model compression techniques, including quantization-aware training and entropy coding, FFNeRV outperforms widely-used standard video codecs (H.264 and HEVC) and performs on par with state-of-the-art video compression algorithms.
@@ -123,7 +123,7 @@
         <h2 class="grey-heading_nerf">
             Video Compression
         </h2>
-        <img src="img/fig_comp.png" style="width:45%; margin-left: 15px; margin-right:25px; margin-top:0px; float: right;">
+        <img src="img/fig_comp.png" style="width:70%; margin-left: 0px; margin-right:0px; margin-top:0px;">
         <p class="paragraph-3 nerf_text">
         We present the effectiveness of FFNeRV for a major video task, video compression, comparing with state-of-the-art methods on the UVG dataset.
         Even without pruning, FFNeRV outperforms widely-used standard video codecs and neural video representations and performs on par with state-of-the-art video compression algorithms.
