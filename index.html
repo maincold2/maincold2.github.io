@@ -225,73 +225,7 @@
                 <div class="w3-center">
                     <h2>Demo</h2>
                 </div>
-                <p><strong>NeRF Synthetic Dataset - Lego</strong></p>
-                <div align="center" style="margin-bottom: 52px;"> 
-                    <img-comparison-slider hover="hover" tabindex="0" class="rendered">
-                    <figure slot="first" class="before"> 
-                        <img id="left_img_NeRF_Lego" src="https://huggingface.co/blee/Masked_Wavelet_Representation/resolve/main/images/NeRF/Lego/TensoRF/000.png" style="min-width: 800px;">
-                        <figcaption id="left_caption_NeRF_Lego" style="text-align:left;"> 
-                            <b>TensoRF-VM192</b>
-                            <br>PSNR: 36.04
-                            <br>Size: 17.03MB
-                        </figcaption>
-                    </figure>
-                    <figure slot="second" class="after"> 
-                        <img type="image/png" id="right_img_NeRF_Lego" src="https://huggingface.co/blee/Masked_Wavelet_Representation/resolve/main/images/NeRF/Lego/000/5e-11.png" style="min-width: 800px;">
-                        <figcaption id="right_caption_NeRF_Lego" style="text-align:right;"> 
-                            <b>Ours-Sparsity 0.9441</b>
-                            <br>PSNR: 35.33
-                            <br>Size: 1.67MB 
-                        </figcaption>
-                    </figure>
-                </img-comparison-slider>
-                <div class="table-wrapper">
-                    <table width="100%">
-                        <tbody>
-                            <tr>
-                                <td align="center"> Left Model</td>
-                                <td align="center"> Frame</td>
-                                <td align="center"> Right Model</td>
-                            </tr>
-                            <tr>
-                                <td align="center"> 
-                                    <select id="left_select_NeRF_Lego" onchange="select_model(this, 'left', 'NeRF', 'Lego')"> 
-                                        <option value="GT">Ground Truth </option>
-                                        <option selected="selected" value="TensoRF">TensoRF </option>
-                                        <option value="6.25e-12">Ours-Sparsity 0.8758 </option>
-                                        <option value="1.25e-11">Ours-Sparsity 0.9165 </option>
-                                        <option value="2.5e-11">Ours-Sparsity 0.9441 </option>
-                                        <option value="5e-11">Ours-Sparsity 0.9652 </option>
-                                        <option value="1e-10">Ours-Sparsity 0.9794 </option>
-                                        <option value="2e-10">Ours-Sparsity 0.9864 </option>
-                                        <option value="4e-10">Ours-Sparsity 0.9907 </option>
-                                        <option value="8e-10">Ours-Sparsity 0.9940 </option>
-                                        <option value="1.6e-09">Ours-Sparsity 0.9959 </option>
-                                    </select></td><td align="center"> 
-                                        <input id="input_NeRF_Lego" type="range" min="0" max="199" value="0" onchange="select_frame(this, 'NeRF', 'Lego')">
-                                    </td>
-                                    <td align="center"> 
-                                        <select id="right_select_NeRF_Lego" onchange="select_model(this, 'right', 'NeRF', 'Lego')"> 
-                                            <option value="GT">Ground Truth </option>
-                                            <option value="TensoRF">TensoRF </option>
-                                            <option value="6.25e-12">Ours-Sparsity 0.8758 </option>
-                                            <option value="1.25e-11">Ours-Sparsity 0.9165 </option>
-                                            <option value="2.5e-11">Ours-Sparsity 0.9441 </option>
-                                            <option selected="selected" value="5e-11">Ours-Sparsity 0.9652 </option>
-                                            <option value="1e-10">Ours-Sparsity 0.9794 </option>
-                                            <option value="2e-10">Ours-Sparsity 0.9864 </option>
-                                            <option value="4e-10">Ours-Sparsity 0.9907 </option>
-                                            <option value="8e-10">Ours-Sparsity 0.9940 </option>
-                                            <option value="1.6e-09">Ours-Sparsity 0.9959 </option>
-                                        </select>
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
 
-                
 		<!-- TODO: REPLACE VIDEOS
                 <p><strong>NeRF Synthetic Dataset</strong></p>
                 <video controls style="width:48%" autoplay loop playsinline muted>
