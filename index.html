@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Compact 3D Gaussian Representation for Radiance Field</title>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="css/style.css" rel="stylesheet" type="text/css" />
+    <style>
+        html,
+        body,
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+            font-family: "Titillium Web", "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+        }
+
+        < !-- .cite {
+            background: #f0f0f0;
+            padding: 10px;
+            font-size: 18px
+        }
+
+        -->.cite {
+            padding: 0px;
+            background: #ffffff;
+            font-size: 18px
+        }
+
+        .card {
+            border: 1px solid #ccc
+        }
+
+        img {
+            margin-bottom: -6px;
+        }
+
+        p {
+            font-size: 18px;
+        }
+
+        a {
+            text-decoration: none;
+            color: #2196F3;
+        }
+        
+        .bibtexsection {
+            width: 100%;
+            height: 12em;
+            font-family: "Courier", monospace;
+            /* font-size: 1vw; */
+            white-space: pre;
+            background-color: #f4f4f4;
+            margin-left: auto;
+            margin-right: auto;
+            text-align: left;
+        }
+
+        .layered-paper-big {
+            /* modified from: http://css-tricks.com/snippets/css/layered-paper/ */
+            box-shadow:
+                0px 0px 1px 1px rgba(0, 0, 0, 0.35),
+                /* The top layer shadow */
+                5px 5px 0 0px #fff,
+                /* The second layer */
+                5px 5px 1px 1px rgba(0, 0, 0, 0.35),
+                /* The second layer shadow */
+                10px 10px 0 0px #fff,
+                /* The third layer */
+                10px 10px 1px 1px rgba(0, 0, 0, 0.35),
+                /* The third layer shadow */
+                15px 15px 0 0px #fff,
+                /* The fourth layer */
+                15px 15px 1px 1px rgba(0, 0, 0, 0.35),
+                /* The fourth layer shadow */
+                20px 20px 0 0px #fff,
+                /* The fifth layer */
+                20px 20px 1px 1px rgba(0, 0, 0, 0.35),
+                /* The fifth layer shadow */
+                25px 25px 0 0px #fff,
+                /* The fifth layer */
+                25px 25px 1px 1px rgba(0, 0, 0, 0.35);
+            /* The fifth layer shadow */
+            margin-left: 10px;
+            margin-right: 60px;
+        }
+
+        table {
+            text-align: center;
+            margin-left: auto;
+            margin-right: auto;
+            border-collapse: collapse;
+        }
+
+        table> :is(thead, tbody)>tr> :is(th, td) {
+            padding: 3px;
+            text-align: center;
+        }
+
+        table>thead>tr> :is(th, td) {
+            border-top: 2px solid;
+            border-bottom: 1px solid;
+        }
+
+        table>tbody>tr:last-child> :is(th, td) {
+            border-bottom: 2px solid;
+        }
+
+        table>tbody {
+            border-top: 2px solid;
+            border-bottom: 1px solid;
+        }
+    </style>
+</head>
+
+<body class="w3-white">
+    <!-- Page Container -->
+    <div class="w3-content w3-margin-top w3-margin-bottom" style="max-width:960px;">
+
+        <!-- The Grid -->
+        <div class="w3-row-padding">
+
+            <!-- paper container -->
+            <div class="w3-display-container w3-row w3-white w3-margin-bottom">
+                <div class="w3-center">
+                    <h1>Compact 3D Gaussian Representation for Radiance Field</h1> 
+
+                    <h5>Joo Chan Lee<sup>1</sup>, Daniel Rho<sup>2</sup>, Xiangyu Sun<sup>1</sup>, Jong Hwan Ko<sup>1</sup>, and Eunbyung Park<sup>1</sup></h5>
+                    <h5><sup>1</sup>Sungkyunkwan University, <sup>2</sup>KT</h5>
+                </div>
+
+                <div class="w3-center">
+		    <!-- TODO: NEED TO FIX THE LINK -->
+                    <h3>[<a href="">Paper</a>]</h3>
+                </div>
+
+                <hr>
+                <div class="w3-display-container w3-row w3-white w3-margin-bottom w3-center">
+                    <embed src="images/fig_demo.jpg" style="width:100%">
+
+                </div>
+
+                <hr>
+                <div class="w3-center">
+                    <h2>Abstract</h2>
+                </div>
+                <p align="justify">Neural Radiance Fields (NeRFs) have demonstrated remarkable potential in capturing complex 3D scenes with high fidelity. However, one persistent challenge that hinders the widespread adoption of NeRFs is the computational bottleneck due to the volumetric rendering. On the other hand, 3D Gaussian splatting (3DGS) has recently emerged as an alternative representation that leverages a 3D Gaussisan-based representation and adopts the rasterization pipeline to render the images rather than volumetric rendering, achieving very fast rendering speed and promising image quality. However, a significant drawback arises as 3DGS entails a substantial number of 3D Gaussians to maintain the high fidelity of the rendered images, which requires a large amount of memory and storage. To address this critical issue, we place a specific emphasis on two key objectives: reducing the number of Gaussian points without sacrificing performance and compressing the Gaussian attributes, such as view-dependent color and covariance. To this end, we propose a learnable mask strategy that significantly reduces the number of Gaussians while preserving high performance. In addition, we propose a compact but effective representation of view-dependent color by employing a grid-based neural field rather than relying on spherical harmonics. Finally, we learn codebooks to compactly represent the geometric attributes of Gaussian by vector quantization. In our extensive experiments, we consistently show over 10x reduced storage and enhanced rendering speed, while maintaining the quality of the scene representation, compared to 3DGS. Our work provides a comprehensive framework for 3D scene representation, achieving high performance, fast training, compactness, and real-time rendering. </p>
+                
+		<!-- TODO: REPLACE THIS SECTION
+                <hr>
+                <div class="w3-center">
+                    <h2>Why wavelet transform?</h2>
+                </div>
+                <div class="w3-display-container w3-row w3-white w3-margin-bottom">
+                    <div align="center">
+                        <img src="images/new_synthetic.png" style="width:37%">
+                        <img src="images/fig_level.png" style="width:35%; margin-top:-10px">
+                    </div>
+                        <img src="images/rate_distortion_large_multi.png" style="width:100%; margin-top:20px">
+                        <p align="justify">Using wavelet coefficients can enhance visual quality, especially when sparsity is high. Furthermore, using a higher level of the wavelet transform can improve visual quality and sparsity even further.</p>
+                </div>
+		-->
+
+		<!-- TODO: REPLACE THIS SECTION
+                <hr>
+                <div class="w3-center">
+                    <h2>Grid visualization</h2>
+                </div>
+                <div class="w3-display-container w3-row w3-white w3-margin-bottom w3-center">
+                    <div style="display: inline-block; width:35%">
+                        <div class="centered"><h3>Top</h3></div>
+                        <img src="images/org_wavelet_0.png" style="width:100%">
+                    </div>
+                    <div style="display: inline-block; width:40%">
+                        <div class="centered"><h3>Lateral</h3></div>
+                        <img src="images/org_wavelet_1.png" style="width:100%">
+                    </div>
+                    <div style="display: inline-block; width:22%">
+                        <div class="centered"><h3>Front</h3></div>
+                        <img src="images/org_wavelet_2.png" style="width:100%">
+                    </div>
+                    <p align="center">Wavelet coefficients</p>
+                    
+                    <div style="display: inline-block; width:35%">
+                        <img src="images/wavelet_mask_0.png" style="width:100%">
+                    </div>
+                    <div style="display: inline-block; width:40%">
+                        <img src="images/wavelet_mask_1.png" style="width:100%">
+                    </div>
+                    <div style="display: inline-block; width:22%">
+                        <img src="images/wavelet_mask_2.png" style="width:100%">
+                    </div>
+                    <p align="center">Binary mask</p>
+                    
+                    <div style="display: inline-block; width:35%">
+                        <img src="images/wavelet_0.png" style="width:100%">
+                    </div>
+                    <div style="display: inline-block; width:40%">
+                        <img src="images/wavelet_1.png" style="width:100%">
+                    </div>
+                    <div style="display: inline-block; width:22%">
+                        <img src="images/wavelet_2.png" style="width:100%">
+                    </div>
+                    <p align="center">Masked wavelet coefficients</p>
+                    
+                    <div style="display: inline-block; width:35%">
+                        <img src="images/spatial_0.png" style="width:100%">
+                    </div>
+                    <div style="display: inline-block; width:40%">
+                        <img src="images/spatial_1.png" style="width:100%">
+                    </div>
+                    <div style="display: inline-block; width:22%">
+                        <img src="images/spatial_2.png" style="width:100%">
+                    </div>
+                    <p align="center">After IDWT</p>
+
+                    <p align="center">With our proposed method, most wavelet coefficients (more than 95%) can be zeroed out.</p>
+                </div>
+		-->
+
+                <hr>
+                <div class="w3-center">
+                    <h2>Demo</h2>
+                </div>
+                <p><strong>NeRF Synthetic Dataset - Lego</strong></p>
+                <div align="center" style="margin-bottom: 52px;"> 
+                    <img-comparison-slider hover="hover" tabindex="0" class="rendered">
+                    <figure slot="first" class="before"> 
+                        <img id="left_img_NeRF_Lego" src="https://huggingface.co/blee/Masked_Wavelet_Representation/resolve/main/images/NeRF/Lego/TensoRF/000.png" style="min-width: 800px;">
+                        <figcaption id="left_caption_NeRF_Lego" style="text-align:left;"> 
+                            <b>TensoRF-VM192</b>
+                            <br>PSNR: 36.04
+                            <br>Size: 17.03MB
+                        </figcaption>
+                    </figure>
+                    <figure slot="second" class="after"> 
+                        <img type="image/png" id="right_img_NeRF_Lego" src="https://huggingface.co/blee/Masked_Wavelet_Representation/resolve/main/images/NeRF/Lego/000/5e-11.png" style="min-width: 800px;">
+                        <figcaption id="right_caption_NeRF_Lego" style="text-align:right;"> 
+                            <b>Ours-Sparsity 0.9441</b>
+                            <br>PSNR: 35.33
+                            <br>Size: 1.67MB 
+                        </figcaption>
+                    </figure>
+                </img-comparison-slider>
+                <div class="table-wrapper">
+                    <table width="100%">
+                        <tbody>
+                            <tr>
+                                <td align="center"> Left Model</td>
+                                <td align="center"> Frame</td>
+                                <td align="center"> Right Model</td>
+                            </tr>
+                            <tr>
+                                <td align="center"> 
+                                    <select id="left_select_NeRF_Lego" onchange="select_model(this, 'left', 'NeRF', 'Lego')"> 
+                                        <option value="GT">Ground Truth </option>
+                                        <option selected="selected" value="TensoRF">TensoRF </option>
+                                        <option value="6.25e-12">Ours-Sparsity 0.8758 </option>
+                                        <option value="1.25e-11">Ours-Sparsity 0.9165 </option>
+                                        <option value="2.5e-11">Ours-Sparsity 0.9441 </option>
+                                        <option value="5e-11">Ours-Sparsity 0.9652 </option>
+                                        <option value="1e-10">Ours-Sparsity 0.9794 </option>
+                                        <option value="2e-10">Ours-Sparsity 0.9864 </option>
+                                        <option value="4e-10">Ours-Sparsity 0.9907 </option>
+                                        <option value="8e-10">Ours-Sparsity 0.9940 </option>
+                                        <option value="1.6e-09">Ours-Sparsity 0.9959 </option>
+                                    </select></td><td align="center"> 
+                                        <input id="input_NeRF_Lego" type="range" min="0" max="199" value="0" onchange="select_frame(this, 'NeRF', 'Lego')">
+                                    </td>
+                                    <td align="center"> 
+                                        <select id="right_select_NeRF_Lego" onchange="select_model(this, 'right', 'NeRF', 'Lego')"> 
+                                            <option value="GT">Ground Truth </option>
+                                            <option value="TensoRF">TensoRF </option>
+                                            <option value="6.25e-12">Ours-Sparsity 0.8758 </option>
+                                            <option value="1.25e-11">Ours-Sparsity 0.9165 </option>
+                                            <option value="2.5e-11">Ours-Sparsity 0.9441 </option>
+                                            <option selected="selected" value="5e-11">Ours-Sparsity 0.9652 </option>
+                                            <option value="1e-10">Ours-Sparsity 0.9794 </option>
+                                            <option value="2e-10">Ours-Sparsity 0.9864 </option>
+                                            <option value="4e-10">Ours-Sparsity 0.9907 </option>
+                                            <option value="8e-10">Ours-Sparsity 0.9940 </option>
+                                            <option value="1.6e-09">Ours-Sparsity 0.9959 </option>
+                                        </select>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                
+		<!-- TODO: REPLACE VIDEOS
+                <p><strong>NeRF Synthetic Dataset</strong></p>
+                <video controls style="width:48%" autoplay loop playsinline muted>
+                    <source src="videos/NeRF/chair_mixed.mp4" type="video/mp4">
+                    Sorry, your browser doesn't support embedded videos.
+                </video>
+		-->
+                <hr>
+                <!-- TODO: REPLACE BIBTEX
+                <div class="w3-center">
+                    <h2>Bibtex</h2>
+                </div>
+                <textarea class="bibtexsection" readonly>
+@InProceedings{Rho_2023_CVPR,
+    author    = {Rho, Daniel and Lee, Byeonghyeon and Nam, Seungtae and Lee, Joo Chan and Ko, Jong Hwan and Park, Eunbyung},
+    title     = {Masked Wavelet Representation for Compact Neural Radiance Fields},
+    booktitle = {Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR)},
+    month     = {June},
+    year      = {2023},
+    pages     = {20680-20690}
+}</textarea>
+                -->
+
+                <hr>
+                <div class="w3-center">
+                    <p class="text-justify">
+                        We used the project page of <a href="https://daniel03c1.github.io/masked_wavelet_nerf/">Masked Wavelet NeRF</a> as a template.
+                    </p>
+                </div>
+            </div>
+            <!-- end paper container -->
+
+        </div><!-- End Grid -->
+    </div><!-- End Page Container -->
+
+</body>
+<script
+defer
+src="https://unpkg.com/img-comparison-slider@7/dist/index.js"
+></script>
+<script type="text/javascript" src="js/main.js"></script> 
+<link
+  rel="stylesheet"
+  href="https://unpkg.com/img-comparison-slider@7/dist/styles.css"
+/>
+
+</html>
