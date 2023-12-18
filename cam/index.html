@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Coordinate-Aware Modulation for Neural Fields</title>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="css/style.css" rel="stylesheet" type="text/css" />
+    <style>
+        html,
+        body,
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+            font-family: "Titillium Web", "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+        }
+
+        < !-- .cite {
+            background: #f0f0f0;
+            padding: 10px;
+            font-size: 18px
+        }
+
+        -->.cite {
+            padding: 0px;
+            background: #ffffff;
+            font-size: 18px
+        }
+
+        .card {
+            border: 1px solid #ccc
+        }
+
+        img {
+            margin-bottom: -6px;
+        }
+
+        p {
+            font-size: 18px;
+        }
+
+        a {
+            text-decoration: none;
+            color: #2196F3;
+        }
+        
+        .bibtexsection {
+            width: 100%;
+            height: 12em;
+            font-family: "Courier", monospace;
+            /* font-size: 1vw; */
+            white-space: pre;
+            background-color: #f4f4f4;
+            margin-left: auto;
+            margin-right: auto;
+            text-align: left;
+        }
+
+        .layered-paper-big {
+            /* modified from: http://css-tricks.com/snippets/css/layered-paper/ */
+            box-shadow:
+                0px 0px 1px 1px rgba(0, 0, 0, 0.35),
+                /* The top layer shadow */
+                5px 5px 0 0px #fff,
+                /* The second layer */
+                5px 5px 1px 1px rgba(0, 0, 0, 0.35),
+                /* The second layer shadow */
+                10px 10px 0 0px #fff,
+                /* The third layer */
+                10px 10px 1px 1px rgba(0, 0, 0, 0.35),
+                /* The third layer shadow */
+                15px 15px 0 0px #fff,
+                /* The fourth layer */
+                15px 15px 1px 1px rgba(0, 0, 0, 0.35),
+                /* The fourth layer shadow */
+                20px 20px 0 0px #fff,
+                /* The fifth layer */
+                20px 20px 1px 1px rgba(0, 0, 0, 0.35),
+                /* The fifth layer shadow */
+                25px 25px 0 0px #fff,
+                /* The fifth layer */
+                25px 25px 1px 1px rgba(0, 0, 0, 0.35);
+            /* The fifth layer shadow */
+            margin-left: 10px;
+            margin-right: 60px;
+        }
+
+        table {
+            text-align: center;
+            margin-left: auto;
+            margin-right: auto;
+            border-collapse: collapse;
+        }
+
+        table> :is(thead, tbody)>tr> :is(th, td) {
+            padding: 3px;
+            text-align: center;
+        }
+
+        table>thead>tr> :is(th, td) {
+            border-top: 2px solid;
+            border-bottom: 1px solid;
+        }
+
+        table>tbody>tr:last-child> :is(th, td) {
+            border-bottom: 2px solid;
+        }
+
+        table>tbody {
+            border-top: 2px solid;
+            border-bottom: 1px solid;
+        }
+    </style>
+</head>
+
+<body class="w3-white">
+    <!-- Page Container -->
+    <div class="w3-content w3-margin-top w3-margin-bottom" style="max-width:960px;">
+
+        <!-- The Grid -->
+        <div class="w3-row-padding">
+
+            <!-- paper container -->
+            <div class="w3-display-container w3-row w3-white w3-margin-bottom">
+                <div class="w3-center">
+                    <h1>Coordinate-Aware Modulation for Neural Fields</h1> 
+
+		    <h5><a href="https://maincold2.github.io">Joo Chan Lee</a><sup>1</sup>, <a href="https://daniel03c1.github.io">Daniel Rho</a><sup>2</sup>, <a href="https://github.com/stnamjef">Seungtae Nam</a><sup>1</sup>, <a href="https://iris.skku.edu">Jong Hwan Ko</a><sup>1</sup>, and <a href="https://silverbottlep.github.io">Eunbyung Park</a><sup>1</sup></h5>
+                    <h5><sup>1</sup>Sungkyunkwan University, <sup>2</sup>KT</h5>
+                </div>
+
+                <div class="w3-center">
+            <!-- TODO: NEED TO FIX THE LINK -->
+	    <h3>[<a href="https://arxiv.org/abs/2311.14993">Paper</a>]</h3>
+                </div>
+
+                <hr>
+                <div class="w3-display-container w3-row w3-white w3-margin-bottom w3-center">
+                    <embed src="images/fig_overview.jpg" style="width:80%">
+
+                </div>
+
+                <hr>
+                <div class="w3-center">
+                    <h2>Abstract</h2>
+                </div>
+                <p align="justify">Neural fields, mapping low-dimensional input coordinates to corresponding signals, have shown promising results in representing various signals. Numerous methodologies have been proposed, and techniques employing MLPs and grid representations have achieved substantial success. MLPs allow compact and high expressibility, yet often suffer from spectral bias and slow convergence speed. On the other hand, methods using grids are free from spectral bias and achieve fast training speed, however, at the expense of high spatial complexity. In this work, we propose a novel way for exploiting both MLPs and grid representations in neural fields. Unlike the prevalent methods that combine them sequentially (extract features from the grids first and feed them to the MLP), we inject spectral bias-free grid representations into the intermediate features in the MLP. More specifically, we suggest a Coordinate-Aware Modulation (CAM), which modulates the intermediate features using scale and shift parameters extracted from the grid representations. This can maintain the strengths of MLPs while mitigating any remaining potential biases, facilitating the rapid learning of high-frequency components. In addition, we empirically found that the feature normalizations, which have not been successful in neural filed literature, proved to be effective when applied in conjunction with the proposed CAM. Experimental results demonstrate that CAM enhances the performance of neural representation and improves learning stability across a range of signals. Especially in the novel view synthesis task, we achieved state-of-the-art performance with the least number of parameters and fast training speed for dynamic scenes and the best performance under 1MB memory for static scenes. CAM also outperforms the best-performing video compression methods using neural fields by a large margin.</p>
+
+                <hr>
+                <div class="w3-center">
+		<h2>Visualization of CAM on various domains</h2>
+		<div class="w3-display-container w3-row w3-white w3-margin-bottom">
+			    <embed src="images/fig2_update.jpg" style="width:80%">
+			</div>
+                </div>
+
+                <hr>
+                <div class="w3-center">
+		    <h2>On Spectral Bias</h2>
+			<div class="w3-display-container w3-row w3-white w3-margin-bottom">
+			    <embed src="images/fig_1d.jpg" style="width:80%">
+		    <p>CAM can be an effective solution for resolving the spectral bias of the MLP while maintaining compactness.</p>
+			</div>
+                </div>
+
+                <hr>
+                <div class="w3-center">
+		    <h2>Results</h2>
+
+<div>
+  <div>
+    <table>
+      <h3 style="text-align: center; margin: 0; color: #333333;">Image Regression and Generalization</h3>
+      <thead>
+        <tr>
+          <th rowspan="2">Method</th>
+          <th rowspan="2">#Params</th>
+          <th colspan="2">Regression</th>
+          <th colspan="2">Generalization</th>
+        </tr>
+        <tr>
+          <th>Natural</th>
+          <th>Text</th>
+          <th>Natural</th>
+          <th>Text</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>I-NGP</td>
+          <td>237K</td>
+          <td><strong>32.98</strong></td>
+          <td>41.94</td>
+          <td>26.11</td>
+          <td>32.37</td>
+        </tr>
+        <tr style="border-top: 1px solid black;">
+          <td>FFN</td>
+          <td>263K</td>
+          <td>30.30</td>
+          <td>34.44</td>
+          <td>27.48</td>
+          <td>30.04</td>
+        </tr>
+        <tr>
+          <td>+ CAM</td>
+          <td>266K</td>
+          <td>32.21 (+1.91)</td>
+          <td><strong>50.17 (+15.73)</strong></td>
+          <td><strong>28.19 (+0.71)</strong></td>
+          <td><strong>33.09 (+3.05)</strong></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+
+<div>
+  <div>
+    <h3 style="color: #333333;">Novel View Synthesis</h3>
+    <table>
+      <thead>
+        <tr>
+          <th rowspan="2">Bit</th>
+          <th rowspan="2">Method</th>
+          <th colspan="2">NeRF Synthetic</th>
+          <th colspan="2">NSVF Synthetic</th>
+          <th colspan="2">LLFF</th>
+        </tr>
+        <tr>
+          <th>Size</th>
+          <th>PSNR</th>
+          <th>Size</th>
+          <th>PSNR</th>
+          <th>Size</th>
+          <th>PSNR</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td rowspan="4">32</td>
+          <td>NeRF</td>
+          <td>5.00</td>
+          <td>31.01</td>
+          <td>5.00</td>
+          <td>30.81</td>
+          <td>5.00</td>
+          <td>26.50</td>
+        </tr>
+        <tr>
+          <td>TensoRF</td>
+          <td>71.9</td>
+          <td>33.14</td>
+          <td>~70</td>
+          <td>36.52</td>
+          <td>179.7</td>
+          <td>26.73</td>
+        </tr>
+        <tr>
+          <td>Mip-NeRF</td>
+          <td><strong>2.34</strong></td>
+          <td>33.09</td>
+          <td><strong>2.34</strong></td>
+          <td>35.83</td>
+          <td><strong>2.34</strong></td>
+          <td>26.86</td>
+        </tr>
+        <tr>
+          <td>+ CAM</td>
+          <td><strong>2.34</strong></td>
+          <td><strong>33.42</strong></td>
+          <td><strong>2.34</strong></td>
+          <td><strong>36.56</strong></td>
+          <td><strong>2.34</strong></td>
+          <td><strong>27.17</strong></td>
+        </tr>
+        <tr style="border-top: 1px solid black;">
+          <td rowspan="4">8</td>
+          <td>Rho et al.</td>
+          <td>1.69</td>
+          <td>32.24</td>
+          <td>1.88</td>
+          <td>35.11</td>
+          <td>7.49</td>
+          <td>26.64</td>
+        </tr>
+        <tr>
+          <td>TensoRF</td>
+          <td>16.9</td>
+          <td>32.78</td>
+          <td>17.8</td>
+          <td>36.11</td>
+          <td>44.7</td>
+          <td>26.66</td>
+        </tr>
+        <tr>
+          <td>Mip-NeRF</td>
+          <td><strong>0.58</strong></td>
+          <td>32.86</td>
+          <td><strong>0.58</strong></td>
+          <td>35.52</td>
+          <td><strong>0.58</strong></td>
+          <td>26.64</td>
+        </tr>
+        <tr>
+          <td>+ CAM</td>
+          <td><strong>0.58</strong></td>
+          <td><strong>33.27</strong></td>
+          <td><strong>0.58</strong></td>
+          <td><strong>36.30</strong></td>
+          <td><strong>0.58</strong></td>
+          <td><strong>26.88</strong></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<div>
+  <h3 style="color: #333333;">Dynamic NeRF</h3>
+  <table>
+    <thead>
+      <tr>
+        <th>Method</th>
+        <th>#Params</th>
+        <th>PSNR</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>D-NeRF</td>
+        <td>1.1M</td>
+        <td>29.67</td>
+      </tr>
+      <tr>
+        <td>TiNeuVox</td>
+        <td>12M</td>
+        <td>32.67</td>
+      </tr>
+      <tr>
+        <td>K-planes</td>
+        <td>37M</td>
+        <td>31.61</td>
+      </tr>
+      <tr style="border-top: 1px solid black;">
+        <td>NerfAcc</td>
+        <td><strong>0.6M</strong></td>
+        <td>32.22</td>
+      </tr>
+      <tr>
+        <td>+ CAM</td>
+        <td><strong>0.6M</strong></td>
+        <td><strong>33.78</strong></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<div style="display: flex; justify-content: space-between;">
+  <div style="width: 49%;">
+    <h3 style="color: #333333;">NeRF Compression</h3>
+    <img src="images/fig_ncomp.jpg" alt="The rate-distortion curve evaluated on NeRF synthetic dataset" style="width: 80%;">
+  </div>
+  <div style="width: 49%;">
+    <h3 style="color: #333333;">Video Compression</h3>
+    <img src="images/fig_vcomp.jpg" alt="The rate-distortion curve on UVG dataset" style="width: 80%;">
+  </div>
+</div>
+
+                </div>
+
+                <hr>
+                <div class="w3-center">
+		    <h2>Analysis</h2>
+			<div class="w3-display-container w3-row w3-white w3-margin-bottom">
+			    <embed src="images/fig_anal.jpg" style="width:80%">
+		    <p>CAM can make features of different coordinates more distinct from each other, and at the same time, it can significantly reduce errors in high frequency.</p>
+			</div>
+                </div>
+
+				<hr>
+				<div class="w3-center">
+					<h2>Bibtex</h2>
+
+				<textarea class="bibtexsection" readonly wrap="off">
+@article{lee2023coordinate,
+  title={Coordinate-Aware Modulation for Neural Fields},
+  author={Lee, Joo Chan and Rho, Daniel and Nam, Seungtae and Ko, Jong Hwan and Park, Eunbyung},
+  journal={arXiv preprint arXiv:2311.14993},
+  year={2023}
+}
+</textarea>
+				</div>
+
+                <hr>
+                <div class="w3-center">
+                    <p class="text-justify">
+                        We used the project page of <a href="https://daniel03c1.github.io/masked_wavelet_nerf/">Masked Wavelet NeRF</a> as a template.
+                    </p>
+                </div>
+            </div>
+            <!-- end paper container -->
+
+        </div><!-- End Grid -->
+    </div><!-- End Page Container -->
+
+</body>
+<script
+defer
+src="https://unpkg.com/img-comparison-slider@7/dist/index.js"
+></script>
+<script type="text/javascript" src="js/main.js"></script> 
+<link
+  rel="stylesheet"
+  href="https://unpkg.com/img-comparison-slider@7/dist/styles.css"
+/>
+
+</html>
