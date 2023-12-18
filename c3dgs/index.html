@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Compact 3D Gaussian Representation for Radiance Field</title>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="css/style.css" rel="stylesheet" type="text/css" />
+    <style>
+        html,
+        body,
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+            font-family: "Titillium Web", "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+        }
+
+        < !-- .cite {
+            background: #f0f0f0;
+            padding: 10px;
+            font-size: 18px
+        }
+
+        -->.cite {
+            padding: 0px;
+            background: #ffffff;
+            font-size: 18px
+        }
+
+        .card {
+            border: 1px solid #ccc
+        }
+
+        img {
+            margin-bottom: -6px;
+        }
+
+        p {
+            font-size: 18px;
+        }
+
+        a {
+            text-decoration: none;
+            color: #2196F3;
+        }
+        
+        .bibtexsection {
+            width: 100%;
+            height: 12em;
+            font-family: "Courier", monospace;
+            /* font-size: 1vw; */
+            white-space: pre;
+            background-color: #f4f4f4;
+            margin-left: auto;
+            margin-right: auto;
+            text-align: left;
+        }
+
+        .layered-paper-big {
+            /* modified from: http://css-tricks.com/snippets/css/layered-paper/ */
+            box-shadow:
+                0px 0px 1px 1px rgba(0, 0, 0, 0.35),
+                /* The top layer shadow */
+                5px 5px 0 0px #fff,
+                /* The second layer */
+                5px 5px 1px 1px rgba(0, 0, 0, 0.35),
+                /* The second layer shadow */
+                10px 10px 0 0px #fff,
+                /* The third layer */
+                10px 10px 1px 1px rgba(0, 0, 0, 0.35),
+                /* The third layer shadow */
+                15px 15px 0 0px #fff,
+                /* The fourth layer */
+                15px 15px 1px 1px rgba(0, 0, 0, 0.35),
+                /* The fourth layer shadow */
+                20px 20px 0 0px #fff,
+                /* The fifth layer */
+                20px 20px 1px 1px rgba(0, 0, 0, 0.35),
+                /* The fifth layer shadow */
+                25px 25px 0 0px #fff,
+                /* The fifth layer */
+                25px 25px 1px 1px rgba(0, 0, 0, 0.35);
+            /* The fifth layer shadow */
+            margin-left: 10px;
+            margin-right: 60px;
+        }
+
+        table {
+            text-align: center;
+            margin-left: auto;
+            margin-right: auto;
+            border-collapse: collapse;
+        }
+
+        table> :is(thead, tbody)>tr> :is(th, td) {
+            padding: 3px;
+            text-align: center;
+        }
+
+        table>thead>tr> :is(th, td) {
+            border-top: 2px solid;
+            border-bottom: 1px solid;
+        }
+
+        table>tbody>tr:last-child> :is(th, td) {
+            border-bottom: 2px solid;
+        }
+
+        table>tbody {
+            border-top: 2px solid;
+            border-bottom: 1px solid;
+        }
+    </style>
+</head>
+
+<body class="w3-white">
+    <!-- Page Container -->
+    <div class="w3-content w3-margin-top w3-margin-bottom" style="max-width:960px;">
+
+        <!-- The Grid -->
+        <div class="w3-row-padding">
+
+            <!-- paper container -->
+            <div class="w3-display-container w3-row w3-white w3-margin-bottom">
+                <div class="w3-center">
+                    <h1>Compact 3D Gaussian Representation for Radiance Field</h1> 
+
+		    <h5><a href="https://maincold2.github.io">Joo Chan Lee</a><sup>1</sup>, <a href="https://daniel03c1.github.io">Daniel Rho</a><sup>2</sup>, <a href="https://scholar.google.com/citations?view_op=list_works&hl=en&user=VLzxTrAAAAAJ">Xiangyu Sun</a><sup>1</sup>, <a href="https://iris.skku.edu">Jong Hwan Ko</a><sup>1</sup>, and <a href="https://silverbottlep.github.io">Eunbyung Park</a><sup>1</sup></h5>
+                    <h5><sup>1</sup>Sungkyunkwan University, <sup>2</sup>KT</h5>
+                </div>
+
+                <div class="w3-center">
+            <!-- TODO: NEED TO FIX THE LINK -->
+	    <h3>[<a href="https://github.com/maincold2/Compact-3DGS">Code</a>] [<a href="https://arxiv.org/abs/2311.13681">Paper</a>]</h3>
+                </div>
+
+                <hr>
+                <div class="w3-center">
+                    <h2>Videos</h2>
+
+                    <div style="width: 48%; display: inline-block;">
+                        <p> Ours (63 MB) </p>
+                        <video controls style="width:100%" autoplay loop playsinline muted>
+                            <source src="videos/ours.mp4" type="video/mp4">
+                            Sorry, your browser doesn't support embedded videos.
+                        </video>
+                    </div>
+                    <div style="width: 48%; display: inline-block;">
+                        <p> 3D Gaussian Splatting (1.4GB) </p>
+                        <video controls style="width:100%" autoplay loop playsinline muted>
+                            <source src="videos/3dgs.mp4" type="video/mp4">
+                            Sorry, your browser doesn't support embedded videos.
+                        </video>
+                    </div>
+                </div>
+
+
+                <hr>
+                <div class="w3-display-container w3-row w3-white w3-margin-bottom w3-center">
+                    <embed src="images/fig_demo.jpg" style="width:100%">
+
+                </div>
+
+                <hr>
+                <div class="w3-center">
+                    <h2>Abstract</h2>
+                </div>
+                <p align="justify">Neural Radiance Fields (NeRFs) have demonstrated remarkable potential in capturing complex 3D scenes with high fidelity. However, one persistent challenge that hinders the widespread adoption of NeRFs is the computational bottleneck due to the volumetric rendering. On the other hand, 3D Gaussian splatting (3DGS) has recently emerged as an alternative representation that leverages a 3D Gaussisan-based representation and adopts the rasterization pipeline to render the images rather than volumetric rendering, achieving very fast rendering speed and promising image quality. However, a significant drawback arises as 3DGS entails a substantial number of 3D Gaussians to maintain the high fidelity of the rendered images, which requires a large amount of memory and storage. To address this critical issue, we place a specific emphasis on two key objectives: reducing the number of Gaussian points without sacrificing performance and compressing the Gaussian attributes, such as view-dependent color and covariance. To this end, we propose a learnable mask strategy that significantly reduces the number of Gaussians while preserving high performance. In addition, we propose a compact but effective representation of view-dependent color by employing a grid-based neural field rather than relying on spherical harmonics. Finally, we learn codebooks to compactly represent the geometric attributes of Gaussian by vector quantization. In our extensive experiments, we consistently show over 10x reduced storage and enhanced rendering speed, while maintaining the quality of the scene representation, compared to 3DGS. Our work provides a comprehensive framework for 3D scene representation, achieving high performance, fast training, compactness, and real-time rendering. </p>
+
+                <hr>
+                <div class="w3-center">
+                    <h2>Architecture Overview</h2>
+                </div>
+                <div class="w3-display-container w3-row w3-white w3-margin-bottom w3-center">
+                    <embed src="images/fig_arch.jpg" style="width:100%">
+
+                </div>
+
+                <div class="w3-center">
+                    <h2>The effect of masking</h2>
+                    <div class="w3-display-container w3-row w3-white w3-margin-bottom w3-center">
+                        <embed src="images/fig_mask.jpg" style="width:45%">
+                    </div>
+                    <div class="w3-display-container w3-row w3-white w3-margin-bottom w3-center">
+                        <embed src="images/fig_vis_mask.jpg" style="width:100%">
+                    </div>
+                    <p>Masking can significantly reduce the number of Gaussians while retaining high quality.</p>
+                </div>
+
+                <hr>
+                <div class="w3-center">
+                    <h2>The detailed process of R-VQ</h2>
+                </div>
+                <div class="w3-display-container w3-row w3-white w3-margin-bottom">
+                    <embed src="images/fig_rvq.jpg" style="width:100%">
+            <p align="justify">In the first stage, the scale and rotation vectors are compared to codes in each codebook, with the closest code identified as the result. In the next stage, the residual between the original vector and the first stage's result is compared with another codebook. This process is repeated up to the final stage.</p>
+                </div>
+                    <div class="w3-display-container w3-row w3-white w3-margin-bottom w3-center">
+                        <embed src="images/fig_vis_rvq.jpg" style="width:50%">
+		    <p align="justify">This reduces the storage requirements by approximately 30% while maintaining the quality of reconstruction, training time, and rendering speed.</p>
+                    </div>
+
+                <hr>
+                <div class="w3-center">
+                    <h2>Results</h2>
+
+                    <div class="w3-display-container w3-row w3-white w3-margin-bottom w3-center">
+                        <embed src="images/fig_qual.jpg" style="width:100%">
+                    </div>
+
+<table style="width:100%;">
+  <tr>
+    <th>Dataset</th>
+    <th colspan="6">Mip-NeRF 360</th>
+    <th colspan="6">Tanks&amp;Temples</th>
+  </tr>
+  <tr style="border-top: 1px solid black;">
+    <th>Method</th>
+    <th>PSNR</th>
+    <th>SSIM</th>
+    <th>LPIPS</th>
+    <th>Train</th>
+    <th>FPS</th>
+    <th>Storage</th>
+    <th>PSNR</th>
+    <th>SSIM</th>
+    <th>LPIPS</th>
+    <th>Train</th>
+    <th>FPS</th>
+    <th>Storage</th>
+  </tr>
+  <tr style="border-top: 1px solid black;">
+    <td>Plenoxels</td>
+    <td>23.08</td>
+    <td>0.626</td>
+    <td>0.463</td>
+    <td>25m 49s</td>
+    <td>6.79</td>
+    <td>2.1 GB</td>
+    <td>21.08</td>
+    <td>0.719</td>
+    <td>0.379</td>
+    <td>25m 05s</td>
+    <td>13.0</td>
+    <td>2.3 GB</td>
+  </tr>
+  <tr>
+    <td>INGP-base</td>
+    <td>25.30</td>
+    <td>0.671</td>
+    <td>0.371</td>
+    <td>05m 37s</td>
+    <td>11.7</td>
+    <td>13 MB</td>
+    <td>21.72</td>
+    <td>0.723</td>
+    <td>0.330</td>
+    <td>05m 26s</td>
+    <td>17.1</td>
+    <td>13 MB</td>
+  </tr>
+  <tr>
+    <td>INGP-big</td>
+    <td>25.59</td>
+    <td>0.699</td>
+    <td>0.331</td>
+    <td>07m 30s</td>
+    <td>9.43</td>
+    <td>48 MB</td>
+    <td>21.92</td>
+    <td>0.745</td>
+    <td>0.305</td>
+    <td>06m 59s</td>
+    <td>14.4</td>
+    <td>48 MB</td>
+  </tr>
+  <tr>
+    <td>Mip-NeRF 360</td>
+    <td>27.69</td>
+    <td>0.792</td>
+    <td>0.237</td>
+    <td>48h</td>
+    <td>0.06</td>
+    <td>8.6 MB</td>
+    <td>22.22</td>
+    <td>0.759</td>
+    <td>0.257</td>
+    <td>48h</td>
+    <td>0.14</td>
+    <td>8.6 MB</td>
+  </tr>
+  <tr>
+    <td>3DGS</td>
+    <td>27.21</td>
+    <td>0.815</td>
+    <td>0.214</td>
+    <td>41m 33s</td>
+    <td>134</td>
+    <td>734 MB</td>
+    <td>23.14</td>
+    <td>0.841</td>
+    <td>0.183</td>
+    <td>26m 54s</td>
+    <td>154</td>
+    <td>411 MB</td>
+  </tr>
+  <tr style="border-top: 1px solid black;">
+    <td>3DGS*</td>
+    <td>27.46</td>
+    <td>0.812</td>
+    <td>0.222</td>
+    <td>24m 07s</td>
+    <td>120</td>
+    <td>746 MB</td>
+    <td>23.71</td>
+    <td>0.845</td>
+    <td>0.178</td>
+    <td>13m 51s</td>
+    <td>160</td>
+    <td>432 MB</td>
+  </tr>
+  <tr>
+    <td>Ours</td>
+    <td>27.08</td>
+    <td>0.798</td>
+    <td>0.247</td>
+    <td>33m 06s</td>
+    <td><strong>128</strong></td>
+    <td><strong>48.8 MB</strong></td>
+    <td>23.32</td>
+    <td>0.831</td>
+    <td>0.201</td>
+    <td>18m 20s</td>
+    <td><strong>185</strong></td>
+    <td><strong>39.4 MB</strong></td>
+  </tr>
+</table>
+
+<p></p>
+<table>
+  <tr>
+    <th>Dataset</th>
+    <th colspan="6">Deep Blending</th>
+  </tr>
+  <tr style="border-top: 1px solid black;">
+    <th>Method</th>
+    <th>PSNR</th>
+    <th>SSIM</th>
+    <th>LPIPS</th>
+    <th>Train</th>
+    <th>FPS</th>
+    <th>Storage</th>
+  </tr>
+  <tr style="border-top: 1px solid black;">
+    <td>Plenoxels</td>
+    <td>23.06</td>
+    <td>0.795</td>
+    <td>0.510</td>
+    <td>27m 49s</td>
+    <td>11.2</td>
+    <td>2.7 GB</td>
+  </tr>
+  <tr>
+    <td>INGP-base</td>
+    <td>23.62</td>
+    <td>0.797</td>
+    <td>0.423</td>
+    <td>06m 31s</td>
+    <td>3.26</td>
+    <td>13 MB</td>
+  </tr>
+  <tr>
+    <td>INGP-big</td>
+    <td>24.96</td>
+    <td>0.817</td>
+    <td>0.390</td>
+    <td>08m 00s</td>
+    <td>2.79</td>
+    <td>48 MB</td>
+  </tr>
+  <tr>
+    <td>Mip-NeRF 360</td>
+    <td>29.40</td>
+    <td>0.901</td>
+    <td>0.245</td>
+    <td>48h</td>
+    <td>0.09</td>
+    <td>8.6 MB</td>
+  </tr>
+  <tr>
+    <td>3DGS</td>
+    <td>29.41</td>
+    <td>0.903</td>
+    <td>0.243</td>
+    <td>36m 02s</td>
+    <td>137</td>
+    <td>676 MB</td>
+  </tr>
+  <tr style="border-top: 1px solid black;">
+    <td>3DGS*</td>
+    <td>29.46</td>
+    <td>0.900</td>
+    <td>0.247</td>
+    <td>21m 52s</td>
+    <td>132</td>
+    <td>663 MB</td>
+  </tr>
+  <tr>
+    <td>Ours</td>
+    <td><strong>29.79</strong></td>
+    <td><strong>0.901</strong></td>
+    <td>0.258</td>
+    <td>27m 33s</td>
+    <td><strong>181</strong></td>
+    <td><strong>43.2 MB</strong></td>
+  </tr>
+</table>
+
+<p></p>
+<table>
+  <tr>
+    <th>Dataset</th>
+    <th colspan="4">NeRF-Synthetic</th>
+  </tr>
+  <tr style="border-top: 1px solid black;">
+    <th>Method</th>
+    <th>PSNR</th>
+    <th>Train Time</th>
+    <th>Storage</th>
+    <th>FPS</th>
+  </tr>
+  <tr style="border-top: 1px solid black;">
+    <td>3DGS</td>
+    <td>33.32*</td>
+    <td>6m 14s</td>
+    <td>68.1 MB</td>
+    <td>359</td>
+  </tr>
+  <tr>
+    <td>Ours</td>
+    <td>33.33</td>
+    <td>8m 04s (×1.29)</td>
+    <td><strong>5.54 MB (×0.08)</strong></td>
+    <td><strong>545 (×1.52)</strong></td>
+  </tr>
+</table>
+
+                </div>
+
+                <hr>
+                <div class="w3-center">
+                    <h2>Bibtex</h2>
+                </div>
+                <textarea class="bibtexsection" readonly>
+@article{lee2023compact,
+  title={Compact 3D Gaussian Representation for Radiance Field},
+  author={Lee, Joo Chan and Rho, Daniel and Sun, Xiangyu and Ko, Jong Hwan and Park, Eunbyung},
+  journal={arXiv preprint arXiv:2311.13681},
+  year={2023}
+}</textarea>
+
+                <hr>
+                <div class="w3-center">
+                    <p class="text-justify">
+                        We used the project page of <a href="https://daniel03c1.github.io/masked_wavelet_nerf/">Masked Wavelet NeRF</a> as a template.
+                    </p>
+                </div>
+            </div>
+            <!-- end paper container -->
+
+        </div><!-- End Grid -->
+    </div><!-- End Page Container -->
+
+</body>
+<script
+defer
+src="https://unpkg.com/img-comparison-slider@7/dist/index.js"
+></script>
+<script type="text/javascript" src="js/main.js"></script> 
+<link
+  rel="stylesheet"
+  href="https://unpkg.com/img-comparison-slider@7/dist/styles.css"
+/>
+
+</html>
