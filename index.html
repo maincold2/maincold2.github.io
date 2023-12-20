@@ -1,292 +1,388 @@
-<!DOCTYPE html>
-<html>
-<head>
+<!DOCTYPE HTML>
+<html lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
     <title>Joo Chan Lee</title>
 
-    <!-- Meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="author" content="Joo Chan Lee">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="stylesheet.css">
+    
+  </head>
 
-    <!-- Bootstrap CSS -->
-    <link href="css/bootstrap.min.css" rel="stylesheet">
-
-    <!-- Custom Styles -->
-    <style>
-          body {
-            font-family: 'sans-serif';
-            font-size: 16px;
-            background-color: #FFFFFF;
-            color: #000000;
-          }
-          #header {
-            /* background-color: hsla(217, 97%, 62%, 0.047); */
-            background-color: #FFFFFF;
-            display: flex;
-            align-items: flex-end;
-            padding-top:60px;
-            padding-bottom:60px;
-          }
-          #footer {
-            background-color: #FFFFFF;
-            padding:60px;
-          }
-          #portrait {
-            border: 3px solid white;
-          }
-          #header-text {
-            margin-top: 60px;
-            margin-left: 220px;
-          }
-          #header-text-name {
-            color: #000000;
-            font-size: 40px;
-          }
-          #header-text-email {
-            font-size: 15px;
-            font-style: italic;
-          }
-          .header-text-desc {
-            font-size: 20px;
-          }
-          .vspace-top {
-            margin-top: 30px;
-          }
-          .vspace-top-news {
-              margin-top: 15px;
-          }
-          .paper-image {
-            width: 150px;
-          }
-          .news-date {
-              font-weight: bold;
-          }
-          .paper-title {
-            font-weight: bold;
-          }
-          .paper-authors {
-            font-style: italic;
-          }
-    </style>
-</head>
-
-<body>
-    <div id='header'>
-        <div class='container'>
-            <div class='row'>
-                <div class="col-sm-3 offset-sm-1">
-                    <img src='img/lee.png' class='img-fluid' width="80%">
-                </div>
-
-                <div class="col">
-                  <div id='header-text-name'>
-                      Joo Chan Lee
-                  </div>
-                  <div id='header-text-desc'>
-                    Ph.D. Student
-                </div>
-                <br>
-                <div id='header-text-desc'>
-                    Department of Artificial Intelligence
-                </div>
-                <div id='header-text-desc'>
-                    Sungkyunkwan University
-                </div>
-                <br>
-                  <div id='header-text-email'>
-                        maincold2 at skku.edu
-                  </div>
-                  <div>
-                    <a href="https://github.com/maincold2">[GitHub]</a>
-                    <a href="https://scholar.google.com/citations?user=WKCHKk8AAAAJ&hl=en">[Google Scholar]</a>
-                  </div>
-
-                </div>
+  <body>
+    <table style="width:100%;max-width:800px;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
+      <tr style="padding:0px">
+        <td style="padding:0px">
+          <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
+            <tr style="padding:0px">
+              <td style="padding:2.5%;width:63%;vertical-align:middle">
+                <p class="name" style="text-align: center;">
+                  Joo Chan Lee
+                </p>
+                <p><br>I am a Ph.D. student in the department of Artificial Intelligence at Sungkyunkwan University, advised by <a href="https://iris.skku.edu">Jong Hwan Ko</a> and <a href="https://silverbottlep.github.io">Eunbyung Park</a>. 
+                  My research interest lies in the areas of computer vision, graphics, and machine learning. Currently, I am interested in designing efficient neural fields architecture.</p>
+                <p style="text-align:center">
+                  <a href="mailto:maincold2@skku.edu">Email</a> &nbsp;/&nbsp;
+                  <a href="https://scholar.google.com/citations?user=WKCHKk8AAAAJ&hl=en">Scholar</a> &nbsp;/&nbsp;
+                  <a href="https://www.linkedin.com/in/maincold2">LinkedIn</a> &nbsp;/&nbsp;
+                  <a href="https://github.com/maincold2">Github</a>
+                </p>
+              </td>
+              <td style="padding:2.5%;width:40%;max-width:40%">
+                <a href="./img/lee.png"><img style="width:70%;max-width:70%;object-fit: cover; border-radius: 20%;" alt="profile photo" src="./img/lee.png" class="hoverZoomLink"></a>
+              </td>
+            </tr>
+          </tbody></table>
+          <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
+      <tr>
+        <td style="padding:20px;width:100%;vertical-align:middle">
+          <h2>Research</h2>
+          <p>
+            Representative papers are <span style="background-color:#e1eafb;">highlighted</span>.
+          </p>
+        </td>
+      </tr>
+          </tbody></table>
+    
+          <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
+    
+        <tr onmouseout="c3dgs_stop()" onmouseover="c3dgs_start()" bgcolor="#e1eafb">
+          <td style="padding:20px;width:25%;vertical-align:middle">
+            <div class="one">
+              <div class="two" id='c3dgs_image'><video  width=100% height=100% muted autoplay loop>
+              <source src="https://maincold2.github.io/c3dgs/videos/ours.mp4" type="video/mp4">
+              Your browser does not support the video tag.
+              </video></div>
+              <img src='c3dgs/images/thumbnail.png' width="160" style='margin-top: 35px;'>
             </div>
-        </div>
-    </div>
-
+            <script type="text/javascript">
+              function c3dgs_start() {
+                document.getElementById('c3dgs_image').style.opacity = "1";
+              }
     
-    <div class='container'>
-    <div class='row vspace-top'>
-    <h2>Publications</h2>
-    </div>
-    <div class='row vspace-top', style="background-color:#FCF5CA">
-      <div class="col">
-        <div class='paper-title'>
-          Compact 3D Gaussian Representation for Radiance Field
-        </div>
-        <div class='paper-desc'>
-            arXiv:2311.13681
-        </div>
-        <div class='paper-authors'>
+              function c3dgs_stop() {
+                document.getElementById('c3dgs_image').style.opacity = "0";
+              }
+              c3dgs_stop()
+            </script>
+          </td>
+        <td style="padding:20px;width:75%;vertical-align:middle">
+          <a href="https://maincold2.github.io/c3dgs/">
+            <span class="papertitle">Compact 3D Gaussian Representation for Radiance Field</span>
+          </a>
+          <br>
           <b>Joo Chan Lee</b>, Daniel Rho, Xiangyu Sun, Jong Hwan Ko, Eunbyung Park
-        </div>
-        <div>
-              <a href="https://maincold2.github.io/c3dgs/">[Project page]</a>
-              <a href="https://arxiv.org/abs/2311.13681">[Paper]</a>
-              <a href="https://github.com/maincold2/Compact-3DGS">[Code]</a>
-        </div>
-      </div>
-  </div>
+          <br>
+          <em>arXiv:2311.13681</em>, 2023
+          <br>
+          <div>
+            <a href="https://maincold2.github.io/c3dgs/">[Project page]</a>
+            <a href="https://arxiv.org/abs/2311.13681">[Paper]</a>
+            <a href="https://github.com/maincold2/Compact-3DGS">[Code]</a>
+          </div>
+          <br>
+          <p>
+            A comprehensive framework for 3D scene representation, achieving high performance, fast training, compactness, and real-time rendering.
+          </p>
+        </td>
+      </tr> 
+      
+      <!-- <tr onmouseout="cam_stop()" onmouseover="cam_start()" bgcolor="#e1eafb">
+        <td style="padding:20px;width:25%;vertical-align:middle">
+          <div class="one">
+            <div class="two" id='cam_image'><video  width=100% height=100% muted autoplay loop>
+            <source src="https://maincold2.github.io/c3dgs/videos/ours.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+            </video></div>
+            <img src='c3dgs/images/thumbnail.png' width="160" style='margin-top: 35px;'>
+          </div>
+          <script type="text/javascript">
+            function cam_start() {
+              document.getElementById('cam_image').style.opacity = "1";
+            }
+  
+            function cam_stop() {
+              document.getElementById('cam_image').style.opacity = "0";
+            }
+            cam_stop()
+          </script>
+        </td> -->
 
-  <div class='row vspace-top', style="background-color:#FCF5CA">
-    <div class="col">
-      <div class='paper-title'>
-        Coordinate-Aware Modulation for Neural Fields
-      </div>
-      <div class='paper-desc'>
-          arXiv:2311.14993
-      </div>
-      <div class='paper-authors'>
+        <tr bgcolor="#e1eafb">
+          <td style="padding:20px;width:25%;vertical-align:middle">
+            <div class="one">
+              <img src='cam/images/fig_overview.jpg' width="160" style='margin-top: 50px';>
+            </div>
+          </td>
+      <td style="padding:20px;width:75%;vertical-align:middle">
+        <a href="https://maincold2.github.io/cam/">
+          <span class="papertitle">Coordinate-Aware Modulation for Neural Fields</span>
+        </a>
+        <br>
         <b>Joo Chan Lee</b>, Daniel Rho, Seungtae Nam, Jong Hwan Ko, Eunbyung Park
-      </div>
+        <br>
+        <em>arXiv:2311.14993</em>, 2023
+        <br>
+        <div>
+          <a href="https://maincold2.github.io/cam/">[Project page]</a>
+          <a href="https://arxiv.org/abs/2311.14993">[Paper]</a>
+          <!-- <a href="https://github.com/maincold2/Compact-3DGS">[Code]</a> -->
+        </div>
+        <br>
+        <p>
+          Injecting spectral bias-free grid representations into the intermediate features of the MLP achieves high performance with compactness.
+        </p>
+      </td>
+    </tr> 
+      
+    <tr onmouseout="ffnerv_stop()" onmouseover="ffnerv_start()" bgcolor="#e1eafb">
+      <td style="padding:20px;width:25%;vertical-align:middle">
+        <div class="one">
+          <div class="two" id='ffnerv_image'><video  width=100% height=100% muted autoplay loop>
+          <source src="https://maincold2.github.io/ffnerv/video/ready_demo.mp4" type="video/mp4">
+          Your browser does not support the video tag.
+          </video></div>
+          <img src='ffnerv/video/thumbnail.png' width="160" style='margin-top: 35px;'>
+        </div>
+        <script type="text/javascript">
+          function ffnerv_start() {
+            document.getElementById('ffnerv_image').style.opacity = "1";
+          }
+
+          function ffnerv_stop() {
+            document.getElementById('ffnerv_image').style.opacity = "0";
+          }
+          ffnerv_stop()
+        </script>
+      </td>
+    <td style="padding:20px;width:75%;vertical-align:middle">
+      <a href="https://maincold2.github.io/ffnerv/">
+        <span class="papertitle">FFNeRV: Flow-Guided Frame-Wise Neural Representations for Videos</span>
+      </a>
+      <br>
+      <b>Joo Chan Lee</b>, Daniel Rho, Xiangyu Sun, Jong Hwan Ko, Eunbyung Park
+      <br>
+      <em>ACM MM</em>, 2023
+      <br>
       <div>
-            <a href="https://maincold2.github.io/cam/">[Project page]</a>
-            <a href="https://arxiv.org/abs/2311.14993">[Paper]</a>
-            <!-- <a href="https://github.com/maincold2/FFNeRV">[Openreview]</a> -->
+        <a href="https://maincold2.github.io/ffnerv/">[Project page]</a>
+        <a href="https://arxiv.org/abs/2212.12294">[Paper]</a>
+        <a href="https://github.com/maincold2/FFNeRV">[Code]</a>
       </div>
-    </div>
-</div>
-
-    <div class='row vspace-top', style="background-color:#FCF5CA">
-        <div class="col">
-          <div class='paper-title'>
-            FFNeRV: Flow-Guided Frame-Wise Neural Representations for Videos
+      <br>
+      <p>
+        Incorporating flow information into frame-wise representations to exploit the temporal redundancy across the frames in videos.
+      </p>
+    </td>
+  </tr> 
+      
+      <tr>
+        <td style="padding:20px;width:25%;vertical-align:middle">
+          <div class="one">
+            <img src='https://iris.skku.edu/publication/c47_iccad_2023/featured_hu1621c99a28d0c8fc51a5ddb8808ca2ed_1230598_720x2500_fit_q75_h2_lanczos_3.webp' width="160">
           </div>
-          <div class='paper-desc'>
-              ACM MM 2023
-          </div>
-          <div class='paper-authors'>
-            <b>Joo Chan Lee</b>, Daniel Rho, Jong Hwan Ko, Eunbyung Park
-          </div>
+        </td>
+        <td style="padding:20px;width:75%;vertical-align:middle">
+          <a href="https://ieeexplore.ieee.org/document/10323749">
+            <span class="papertitle">Kernel Shape Control for Row-Efficient Convolution on Processing-In-Memory Arrays</span>
+          </a>
+          <br>
+          Johnny Rhe, Kang Eun Jeon, <b>Joo Chan Lee</b>, Seongmoon Jeong, Jong Hwan Ko
+          <br>
+          <em>ICCAD</em>, 2023
+          <br>
           <div>
-                <a href="https://maincold2.github.io/ffnerv/">[Project page]</a>
-                <a href="https://arxiv.org/abs/2212.12294">[Paper]</a>
-                <a href="https://github.com/maincold2/FFNeRV">[Code]</a>
+            <a href="https://ieeexplore.ieee.org/document/10323749">[Paper]</a>
           </div>
-        </div>
-    </div>
+          <br>
+          <p>
+            A novel pruning method for a Processing-In-Memory hardware.
+          <br>
+        </td>
+      </tr> 
 
-    <div class='row vspace-top'>
-        <div class="col">
-          <div class='paper-title'>
-            Kernel Shape Control for Row-Efficient Convolution on Processing-In-Memory Arrays
+      <tr onmouseout="maskednerf_stop()" onmouseover="maskednerf_start()" bgcolor="#e1eafb">
+        <td style="padding:20px;width:25%;vertical-align:middle">
+          <div class="one">
+            <div class="two" id='maskednerf_image'><video  width=100% height=100% muted autoplay loop>
+            <source src="https://daniel03c1.github.io/masked_wavelet_nerf/videos/NeRF/lego_mixed.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+            </video></div>
+            <img src='img/maskednerf_thumbnail.png' width="160" style='margin-top: 35px;'>
           </div>
-          <div class='paper-desc'>
-              ICCAD 2023
-          </div>
-          <div class='paper-authors'>
-            Johnny Rhe, Kang Eun Jeon, <b>Joo Chan Lee</b>, Seongmoon Jeong, Jong Hwan Ko
-          </div>
-          <div>
-                <!-- <a href="https://maincold2.github.io/ffnerv/">[Project page]</a>
-                <a href="https://arxiv.org/abs/2212.12294">[Paper]</a>
-                <a href="https://github.com/maincold2/FFNeRV">[Code]</a> -->
-          </div>
+          <script type="text/javascript">
+            function maskednerf_start() {
+              document.getElementById('maskednerf_image').style.opacity = "1";
+            }
+  
+            function maskednerf_stop() {
+              document.getElementById('maskednerf_image').style.opacity = "0";
+            }
+            maskednerf_stop()
+          </script>
+        </td>
+      <td style="padding:20px;width:75%;vertical-align:middle">
+        <a href="https://daniel03c1.github.io/masked_wavelet_nerf/">
+          <span class="papertitle">Masked Wavelet Representation for Compact Neural Radiance Fields</span>
+        </a>
+        <br>
+        Daniel Rho*, Byeonghyeon Lee*, Seungtae Nam, <b>Joo Chan Lee</b>, Jong Hwan Ko, Eunbyung Park
+        <br>
+        <em>CVPR</em>, 2023
+        <br>
+        <div>
+          <a href="https://daniel03c1.github.io/masked_wavelet_nerf/">[Project page]</a>
+          <a href="https://arxiv.org/abs/2212.09069">[Paper]</a>
+          <a href="https://github.com/daniel03c1/masked_wavelet_nerf">[Code]</a>
         </div>
-    </div>
+        <br>
+        <p>
+          Using the wavelet transform with learnable masking for compact grid-based neural radiance fields.
+        </p>
+      </td>
+    </tr> 
 
-    <div class='row vspace-top', style="background-color:#FCF5CA">
-        <div class="col">
-          <div class='paper-title'>
-            Masked Wavelet Representation for Compact Neural Radiance Fields
-          </div>
-          <div class='paper-desc'>
-              CVPR 2023
-          </div>
-          <div class='paper-authors'>
-            Daniel Rho*, Byeonghyeon Lee*, Seungtae Nam, <b>Joo Chan Lee</b>, Jong Hwan Ko, Eunbyung Park
-          </div>
-          <div>
-                <a href="https://daniel03c1.github.io/masked_wavelet_nerf/">[Project page]</a>
-                <a href="https://arxiv.org/abs/2212.09069">[Paper]</a>
-                <a href="https://github.com/daniel03c1/masked_wavelet_nerf">[Code]</a>
-          </div>
+    <tr>
+      <td style="padding:20px;width:25%;vertical-align:middle">
+        <div class="one">
+          <img src='https://iris.skku.edu/publication/j21_iot_2022/featured_hu3ce7c306b0e2767d2fec737ccbe31596_346161_720x2500_fit_q75_h2_lanczos.webp' width="160" style='margin-top: 15px';>
         </div>
-    </div>
+      </td>
+      <td style="padding:20px;width:75%;vertical-align:middle">
+        <a href="https://ieeexplore.ieee.org/document/9956520">
+          <span class="papertitle">A Reconfigurable Neural Architecture for Edge–Cloud Collaborative Real-Time Object Detection</span>
+        </a>
+        <br>
+        <b>Joo Chan Lee</b>, Yongwoo Kim, SungTae Moon, Jong Hwan Ko
+        <br>
+        <em>IEEE Internet of Things Journal</em>, 2022
+        <br>
+        <div>
+          <a href="https://ieeexplore.ieee.org/document/9887626">[Paper]</a>
+        </div>
+        <br>
+        <p>
+          A single-weight reconfigurable object detector for collaborative intelligence.
+        <br>
+      </td>
+    </tr> 
+
+    <tr>
+      <td style="padding:20px;width:25%;vertical-align:middle">
+        <div class="one">
+          <img src='https://iris.skku.edu/publication/j20_tomm_2022/featured_hu8654dd4afe97dd5cbdc405565a8d43f2_324538_720x2500_fit_q75_h2_lanczos.webp' width="160" style='margin-top: 40px';>
+        </div>
+      </td>
+      <td style="padding:20px;width:75%;vertical-align:middle">
+        <a href="https://dl.acm.org/doi/abs/10.1145/3551389">
+          <span class="papertitle">Scalable Color Quantization for Task-Centric Image Compression</span>
+        </a>
+        <br>
+        Jae Hyun Park, Sang Hoon Kim, <b>Joo Chan Lee</b>, Jong Hwan Ko
+        <br>
+        <em>ACM TOMM</em>, 2022
+        <br>
+        <div>
+          <a href="https://dl.acm.org/doi/abs/10.1145/3551389">[Paper]</a>
+        </div>
+        <br>
+        <p>
+          Images with variable color space sizes can be extracted from a master image generated by a single DNN model.
+        <br>
+      </td>
+    </tr> 
+
     
+    <tr>
+      <td style="padding:20px;width:25%;vertical-align:middle">
+        <div class="one">
+          <img src='https://iris.skku.edu/publication/c30_avss_2021/Featured_hu6aef2193e6bece41bd2a0e680fa624e7_139860_720x2500_fit_q75_h2_lanczos.webp' width="160" style='margin-top: 25px';>
+        </div>
+      </td>
+      <td style="padding:20px;width:75%;vertical-align:middle">
+        <a href="https://ieeexplore.ieee.org/document/9663806">
+          <span class="papertitle">A Splittable DNN-Based Object Detector for Edge-Cloud Collaborative Real-Time Video Inference</span>
+        </a>
+        <br>
+        <b>Joo Chan Lee</b>, Yongwoo Kim, SungTae Moon, Jong Hwan Ko
+        <br>
+        <em>AVSS</em>, 2021
+        <br>
+        <div>
+          <a href="https://ieeexplore.ieee.org/document/9663806">[Paper]</a>
+        </div>
+        <br>
+        <p>
+          A splittable object detector for real-time collaborative inference.
+        <br>
+      </td>
+    </tr> 
+
+    <tr>
+      <td style="padding:20px;width:25%;vertical-align:middle">
+        <div class="one">
+          <img src='https://iris.skku.edu/publication/j12_iet_el_2021/featured_hu6aef2193e6bece41bd2a0e680fa624e7_229612_720x2500_fit_q75_h2_lanczos.webp' width="160" style='margin-top: 35px';>
+        </div>
+      </td>
+      <td style="padding:20px;width:75%;vertical-align:middle">
+        <a href="https://dl.acm.org/doi/abs/10.1145/3551389">
+          <span class="papertitle">Robust detection of small and dense objects in images from autonomous aerial vehicles</span>
+        </a>
+        <br>
+        <b>Joo Chan Lee</b>, JeongYeop Yoo, Yongwoo Kim, SungTae Moon, Jong Hwan Ko
+        <br>
+        <em>EL</em>, 2021
+        <br>
+        <div>
+          <a href="https://ietresearch.onlinelibrary.wiley.com/doi/abs/10.1049/ell2.12245">[Paper]</a>
+        </div>
+        <br>
+        <p>
+          Technical report for high performance small object detection.
+        <br>
+      </td>
+    </tr> 
+
+    <tr>
+      <td style="padding:20px;width:25%;vertical-align:middle">
+        <div class="one">
+          <img src='https://iris.skku.edu/publication/c25_eccv_2020/Featured_hu84971219c3628f7f9d6df5f86721df13_187303_720x2500_fit_q75_h2_lanczos.webp' width="160" style='margin-top: 25px';>
+        </div>
+      </td>
+      <td style="padding:20px;width:75%;vertical-align:middle">
+        <a href="https://dl.acm.org/doi/abs/10.1145/3551389">
+          <span class="papertitle">VisDrone-DET2020: The Vision Meets Drone Object Detection in Image Challenge Results</span>
+        </a>
+        <br>
+        <b>Joo Chan Lee</b>, JeongYeop Yoo, Yongwoo Kim, SungTae Moon, Jong Hwan Ko
+        <br>
+        <em>ECCV Workshops</em>, 2020
+        <br>
+        <div>
+          <a href="https://link.springer.com/chapter/10.1007/978-3-030-66823-5_42">[Paper]</a>
+            <a href="http://iris.skku.edu/img/2020-task1_first.png">[Certificate]</a>
+        </div>
+        <br>
+        <p>
+          VisDrone Challenge 1st Place Winner
+        <br>
+      </td>
+    </tr> 
     
-    <div class='row vspace-top'>
-        <div class="col">
-          <div class='paper-title'>
-            A Reconfigurable Neural Architecture for Edge–Cloud Collaborative Real-Time Object Detection
-          </div>
-          <div class='paper-desc'>
-              IEEE Internet of Things Journal (2022)
-          </div>
-          <div class='paper-authors'>
-            <b>Joo Chan Lee</b>, Yongwoo Kim, SungTae Moon, Jong Hwan Ko
-          </div>
-          <div>
-                <a href="https://ieeexplore.ieee.org/abstract/document/9887626">[Paper]</a>
-          </div>
-        </div>
-    </div>
-    <div class='row vspace-top'>
-        <div class="col">
-          <div class='paper-title'>
-            Scalable Color Quantization for Task-Centric Image Compression
-          </div>
-          <div class='paper-desc'>
-              ACM TOMM (2022)
-          </div>
-          <div class='paper-authors'>
-            Jae Hyun Park, Sang Hoon Kim, <b>Joo Chan Lee</b>, Jong Hwan Ko
-          </div>
-          <div>
-                <a href="https://dl.acm.org/doi/abs/10.1145/3551389">[Paper]</a>
-          </div>
-        </div>
-    </div>
-
-    <div class='row vspace-top'>
-        <div class="col">
-          <div class='paper-title'>
-            A Splittable DNN-Based Object Detector for Edge-Cloud Collaborative Real-Time Video Inference
-          </div>
-          <div class='paper-desc'>
-              AVSS 2021
-          </div>
-          <div class='paper-authors'>
-            <b>Joo Chan Lee</b>, Yongwoo Kim, SungTae Moon, Jong Hwan Ko
-          </div>
-          <div>
-                <a href="https://ieeexplore.ieee.org/abstract/document/9663806">[Paper]</a>
-          </div>
-        </div>
-    </div>
-
-    <div class='row vspace-top'>
-        <div class="col">
-          <div class='paper-title'>
-            Robust detection of small and dense objects in images from autonomous aerial vehicles
-          </div>
-          <div class='paper-desc'>
-              EL (2021)
-          </div>
-          <div class='paper-authors'>
-            <b>Joo Chan Lee</b>, JeongYeop Yoo, Yongwoo Kim, SungTae Moon, Jong Hwan Ko
-          </div>
-          <div>
-                <a href="https://ietresearch.onlinelibrary.wiley.com/doi/abs/10.1049/ell2.12245">[Paper]</a>
-          </div>
-        </div>
-    </div>
-
-    <div class='row vspace-top'>
-        <div class="col">
-          <div class='paper-title'>
-            VisDrone-DET2020: The Vision Meets Drone Object Detection in Image Challenge Results
-          </div>
-          <div class='paper-desc'>
-              ECCV 2020 Workshops (VisDrone Challenge 1st Place Winner)
-          </div>
-          <div class='paper-authors'>
-            ..., <b>Joo Chan Lee</b>, ...
-          </div>
-          <div>
-                <a href="https://link.springer.com/chapter/10.1007/978-3-030-66823-5_42">[Paper]</a>
-                <a href="http://iris.skku.edu/img/2020-task1_first.png">[Certificate]</a>
-          </div>
-        </div>
-    </div>
+          <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
+            <tr>
+              <td style="padding:0px">
+                <br>
+                <p style="text-align:center;font-size:small;">
+                  Design and source code from <a href="https://jonbarron.info/">Jon Barron's website</a>.
+                </p>
+              </td>
+            </tr>
+          </tbody></table>
+        </td>
+      </tr>
+    </table>
+  </body>
+</html>
