@@ -139,19 +139,16 @@
 
                 <hr>
                 <div class="w3-center">
-                    <h2>Videos</h2>
-
+                    <!-- <h2>Videos</h2> -->
                     <div style="width: 48%; display: inline-block;">
-                        <p> Ours (63 MB) </p>
                         <video controls style="width:100%" autoplay loop playsinline muted>
-                            <source src="videos/ours.mp4" type="video/mp4">
+                            <source src="videos/bicycle.mp4" type="video/mp4">
                             Sorry, your browser doesn't support embedded videos.
                         </video>
                     </div>
-                    <div style="width: 48%; display: inline-block;">
-                        <p> 3D Gaussian Splatting (1.4GB) </p>
+                    <div style="width: 48.4%; display: inline-block;">
                         <video controls style="width:100%" autoplay loop playsinline muted>
-                            <source src="videos/3dgs.mp4" type="video/mp4">
+                            <source src="videos/drjohnson.mp4" type="video/mp4">
                             Sorry, your browser doesn't support embedded videos.
                         </video>
                     </div>
@@ -166,18 +163,19 @@
 
                 <hr>
                 <div class="w3-center">
+                  <h2>Architecture Overview</h2>
+              </div>
+              <div class="w3-display-container w3-row w3-white w3-margin-bottom w3-center">
+                  <embed src="images/fig_arch.jpg" style="width:100%">
+
+              </div>
+                <!-- <div class="w3-center">
                     <h2>Abstract</h2>
-                </div>
+                </div> -->
                 <p align="justify">Neural Radiance Fields (NeRFs) have demonstrated remarkable potential in capturing complex 3D scenes with high fidelity. However, one persistent challenge that hinders the widespread adoption of NeRFs is the computational bottleneck due to the volumetric rendering. On the other hand, 3D Gaussian splatting (3DGS) has recently emerged as an alternative representation that leverages a 3D Gaussisan-based representation and adopts the rasterization pipeline to render the images rather than volumetric rendering, achieving very fast rendering speed and promising image quality. However, a significant drawback arises as 3DGS entails a substantial number of 3D Gaussians to maintain the high fidelity of the rendered images, which requires a large amount of memory and storage. To address this critical issue, we place a specific emphasis on two key objectives: reducing the number of Gaussian points without sacrificing performance and compressing the Gaussian attributes, such as view-dependent color and covariance. To this end, we propose a learnable mask strategy that significantly reduces the number of Gaussians while preserving high performance. In addition, we propose a compact but effective representation of view-dependent color by employing a grid-based neural field rather than relying on spherical harmonics. Finally, we learn codebooks to compactly represent the geometric attributes of Gaussian by vector quantization. In our extensive experiments, we consistently show over 10x reduced storage and enhanced rendering speed, while maintaining the quality of the scene representation, compared to 3DGS. Our work provides a comprehensive framework for 3D scene representation, achieving high performance, fast training, compactness, and real-time rendering. </p>
 
                 <hr>
-                <div class="w3-center">
-                    <h2>Architecture Overview</h2>
-                </div>
-                <div class="w3-display-container w3-row w3-white w3-margin-bottom w3-center">
-                    <embed src="images/fig_arch.jpg" style="width:100%">
-
-                </div>
+            
 
                 <div class="w3-center">
                     <h2>The effect of masking</h2>
