@@ -142,13 +142,13 @@
                     <!-- <h2>Videos</h2> -->
                     <div style="width: 48%; display: inline-block;">
                         <video controls style="width:100%" autoplay loop playsinline muted>
-                            <source src="videos/bicycle.mp4" type="video/mp4">
+                            <source src="videos/bicycle_pp.mp4" type="video/mp4">
                             Sorry, your browser doesn't support embedded videos.
                         </video>
                     </div>
                     <div style="width: 48.4%; display: inline-block;">
                         <video controls style="width:100%" autoplay loop playsinline muted>
-                            <source src="videos/drjohnson.mp4" type="video/mp4">
+                            <source src="videos/drjohnson_pp.mp4" type="video/mp4">
                             Sorry, your browser doesn't support embedded videos.
                         </video>
                     </div>
@@ -172,7 +172,14 @@
                 <!-- <div class="w3-center">
                     <h2>Abstract</h2>
                 </div> -->
-                <p align="justify">Neural Radiance Fields (NeRFs) have demonstrated remarkable potential in capturing complex 3D scenes with high fidelity. However, one persistent challenge that hinders the widespread adoption of NeRFs is the computational bottleneck due to the volumetric rendering. On the other hand, 3D Gaussian splatting (3DGS) has recently emerged as an alternative representation that leverages a 3D Gaussisan-based representation and adopts the rasterization pipeline to render the images rather than volumetric rendering, achieving very fast rendering speed and promising image quality. However, a significant drawback arises as 3DGS entails a substantial number of 3D Gaussians to maintain the high fidelity of the rendered images, which requires a large amount of memory and storage. To address this critical issue, we place a specific emphasis on two key objectives: reducing the number of Gaussian points without sacrificing performance and compressing the Gaussian attributes, such as view-dependent color and covariance. To this end, we propose a learnable mask strategy that significantly reduces the number of Gaussians while preserving high performance. In addition, we propose a compact but effective representation of view-dependent color by employing a grid-based neural field rather than relying on spherical harmonics. Finally, we learn codebooks to compactly represent the geometric attributes of Gaussian by vector quantization. In our extensive experiments, we consistently show over 10x reduced storage and enhanced rendering speed, while maintaining the quality of the scene representation, compared to 3DGS. Our work provides a comprehensive framework for 3D scene representation, achieving high performance, fast training, compactness, and real-time rendering. </p>
+                <p align="justify">
+                  3D Gaussian splatting (3DGS) has recently emerged as an alternative representation that leverages a 3D Gaussisan-based representation and adopts the rasterization pipeline to render the images rather than volumetric rendering, achieving very fast rendering speed and promising image quality.
+                  However, a significant drawback arises as 3DGS entails a substantial number of 3D Gaussians to maintain the high fidelity of the rendered images, which requires a large amount of memory and storage.
+                  To address this critical issue, we place a specific emphasis on two key objectives: reducing the number of Gaussian points without sacrificing performance and compressing the Gaussian attributes, such as view-dependent color and covariance.
+                  To this end, we propose a learnable mask strategy that significantly reduces the number of Gaussians while preserving high performance. In addition, we propose a compact but effective representation of view-dependent color by employing a grid-based neural field rather than relying on spherical harmonics. Finally, we learn codebooks to compactly represent the geometric attributes of Gaussian by vector quantization.
+                  With model compression techniques such as quantization and entropy coding, we consistently show over 25x reduced storage and enhanced rendering speed, while maintaining the quality of the scene representation, compared to 3DGS.
+                  Our work provides a comprehensive framework for 3D scene representation, achieving high performance, fast training, compactness, and real-time rendering.
+                 </p>
 
                 <hr>
             
@@ -204,7 +211,11 @@
                 <hr>
                 <div class="w3-center">
                     <h2>Results</h2>
-
+                    <p align="justify">
+                      In addition to the proposed method (Ours), we implemented straightforward post-processing techniques on the model attributes, a variant we denote as Ours+PP. These post-processing steps include:
+                      1) Applying 8-bit min-max quantization to opacity and hash grid parameters. 2) Pruning hash grid parameters with values below 0.1.
+                      3) Applying Huffman encoding on the quantized opacity and hash parameters, and R-VQ indices.
+                  </div>
                     <div class="w3-display-container w3-row w3-white w3-margin-bottom w3-center">
                         <embed src="images/fig_qual.jpg" style="width:100%">
                     </div>
@@ -335,6 +346,22 @@
     <td><strong>185</strong></td>
     <td><strong>39.4 MB</strong></td>
   </tr>
+  <tr>
+    <td>Ours+PP</td>
+    <td>27.03</td>
+    <td>0.797</td>
+    <td>0.247</td>
+    <td>-</td>
+    <td>-</td>
+    <td><strong>29.1 MB</strong></td>
+    <td>23.32</td>
+    <td>0.831</td>
+    <td>0.202</td>
+    <td>-</td>
+    <td><strong>-</strong></td>
+    <td><strong>20.9 MB</strong></td>
+  </tr>
+
 </table>
 
 <p></p>
@@ -415,9 +442,18 @@
     <td><strong>181</strong></td>
     <td><strong>43.2 MB</strong></td>
   </tr>
+  <tr>
+    <td>Ours+PP </td>
+    <td><strong>29.73</strong></td>
+    <td>0.900</td>
+    <td>0.258</td>
+    <td>-</td>
+    <td><strong>-</strong></td>
+    <td><strong>23.8 MB</strong></td>
+  </tr>
 </table>
 
-<p></p>
+<!-- <p></p>
 <table>
   <tr>
     <th>Dataset</th>
@@ -444,7 +480,7 @@
     <td><strong>5.54 MB (×0.08)</strong></td>
     <td><strong>545 (×1.52)</strong></td>
   </tr>
-</table>
+</table> -->
 
                 </div>
 
