@@ -130,21 +130,14 @@
           <h1>Compact 3D Gaussian Splatting for Static and Dynamic Radiance Fields</h1>
 
           <div class="w3-center">
-            <h4>Preprint</h4>
-            <div class="w3-center">
-              <!-- TODO: NEED TO FIX THE LINK -->
-              <h3>[<a href="https://github.com/maincold2/Dynamic_C3DGS/">Code</a>] [<a href="https://arxiv.org/abs/2408.03822">Paper</a>]</h3>
+            <h4><b>Preprint</b> [<a href="https://github.com/maincold2/Dynamic_C3DGS/"><b>Code</b></a>] [<a href="https://arxiv.org/abs/2408.03822"><b>Paper</b></a>]</h4>
             </div>
             <div class="w3-center">
               <h1>Compact 3D Gaussian Representation for Radiance Field</h1>
 
               <div class="w3-center">
-                <h4>CVPR 2024 (Highlight)</h4>
-
-                <div class="w3-center">
-                  <!-- TODO: NEED TO FIX THE LINK -->
-                  <h3>[<a href="https://github.com/maincold2/Compact-3DGS">Code</a>] [<a
-                      href="https://arxiv.org/abs/2311.13681">Paper</a>]</h3>
+                <h4><b>CVPR 2024 (Highlight)</b> [<a href="https://github.com/maincold2/Compact-3DGS"><b>Code</b></a>] [<a
+                      href="https://arxiv.org/abs/2311.13681"><b>Paper</b></a>]</h4>
                 </div>
                 <h5><a href="https://maincold2.github.io">Joo Chan Lee</a><sup>1</sup>, <a
                     href="https://daniel03c1.github.io">Daniel Rho</a><sup>2</sup>, <a
@@ -222,14 +215,14 @@
 
 
               <hr>
-              <div class="w3-display-container w3-row w3-white w3-margin-bottom w3-center">
+              <!-- <div class="w3-display-container w3-row w3-white w3-margin-bottom w3-center">
                 <embed src="images/fig_demo.jpg" style="width:100%">
 
               </div>
 
               <hr>
               <div class="w3-center">
-                <h2>Architecture Overview</h2>
+                <h2>Architecture Overview</h2> -->
               </div>
               <div class="w3-display-container w3-row w3-white w3-margin-bottom w3-center">
                 <embed src="images/fig_arch.jpg" style="width:100%">
@@ -261,7 +254,7 @@
 
               <hr>
 
-
+<!-- 
               <div class="w3-center">
                 <h2>The effect of masking</h2>
                 <div class="w3-display-container w3-row w3-white w3-margin-bottom w3-center">
@@ -288,283 +281,61 @@
                 <embed src="images/fig_vis_rvq.jpg" style="width:50%">
                 <p align="justify">This reduces the storage requirements by approximately 30% while maintaining the
                   quality of reconstruction, training time, and rendering speed.</p>
-              </div>
+              </div> -->
 
-              <hr>
               <div class="w3-center">
                 <h2>Results</h2>
                 <p align="justify">
-                  In addition to the proposed method (Ours), we implemented straightforward post-processing techniques
+                  In addition to the end-to-end trained models (Ours), we implemented straightforward post-processing techniques
                   on the model attributes, a variant we denote as Ours+PP. These post-processing steps include:
-                  1) Applying 8-bit min-max quantization to opacity and hash grid parameters. 2) Pruning hash grid
+                  1) Applying 8-bit min-max quantization to hash grid parameters and scalar attributes. 2) Pruning hash grid
                   parameters with values below 0.1.
-                  3) Applying Huffman encoding on the quantized opacity and hash parameters, and R-VQ indices.
+                  3) Sorting Gaussians in Morton order.
+                  4) Applying Huffman encoding on the 8-bit quantized values (hash parameters and scalar attributes) and R-VQ indices, and compressing the results using DEFLATE
               </div>
+              <h3>Static scenes</h3>
               <div class="w3-display-container w3-row w3-white w3-margin-bottom w3-center">
-                <embed src="images/fig_qual.jpg" style="width:100%">
+                <embed src="images/fig_qual_s.png" style="width:100%">
               </div>
 
-              <table style="width:100%;">
-                <tr>
-                  <th>Dataset</th>
-                  <th colspan="6">Mip-NeRF 360</th>
-                  <th colspan="6">Tanks&amp;Temples</th>
-                </tr>
-                <tr style="border-top: 1px solid black;">
-                  <th>Method</th>
-                  <th>PSNR</th>
-                  <th>SSIM</th>
-                  <th>LPIPS</th>
-                  <th>Train</th>
-                  <th>FPS</th>
-                  <th>Storage</th>
-                  <th>PSNR</th>
-                  <th>SSIM</th>
-                  <th>LPIPS</th>
-                  <th>Train</th>
-                  <th>FPS</th>
-                  <th>Storage</th>
-                </tr>
-                <tr style="border-top: 1px solid black;">
-                  <td>Plenoxels</td>
-                  <td>23.08</td>
-                  <td>0.626</td>
-                  <td>0.463</td>
-                  <td>25m 49s</td>
-                  <td>6.79</td>
-                  <td>2.1 GB</td>
-                  <td>21.08</td>
-                  <td>0.719</td>
-                  <td>0.379</td>
-                  <td>25m 05s</td>
-                  <td>13.0</td>
-                  <td>2.3 GB</td>
-                </tr>
-                <tr>
-                  <td>INGP-base</td>
-                  <td>25.30</td>
-                  <td>0.671</td>
-                  <td>0.371</td>
-                  <td>05m 37s</td>
-                  <td>11.7</td>
-                  <td>13 MB</td>
-                  <td>21.72</td>
-                  <td>0.723</td>
-                  <td>0.330</td>
-                  <td>05m 26s</td>
-                  <td>17.1</td>
-                  <td>13 MB</td>
-                </tr>
-                <tr>
-                  <td>INGP-big</td>
-                  <td>25.59</td>
-                  <td>0.699</td>
-                  <td>0.331</td>
-                  <td>07m 30s</td>
-                  <td>9.43</td>
-                  <td>48 MB</td>
-                  <td>21.92</td>
-                  <td>0.745</td>
-                  <td>0.305</td>
-                  <td>06m 59s</td>
-                  <td>14.4</td>
-                  <td>48 MB</td>
-                </tr>
-                <tr>
-                  <td>Mip-NeRF 360</td>
-                  <td>27.69</td>
-                  <td>0.792</td>
-                  <td>0.237</td>
-                  <td>48h</td>
-                  <td>0.06</td>
-                  <td>8.6 MB</td>
-                  <td>22.22</td>
-                  <td>0.759</td>
-                  <td>0.257</td>
-                  <td>48h</td>
-                  <td>0.14</td>
-                  <td>8.6 MB</td>
-                </tr>
-                <tr>
-                  <td>3DGS</td>
-                  <td>27.21</td>
-                  <td>0.815</td>
-                  <td>0.214</td>
-                  <td>41m 33s</td>
-                  <td>134</td>
-                  <td>734 MB</td>
-                  <td>23.14</td>
-                  <td>0.841</td>
-                  <td>0.183</td>
-                  <td>26m 54s</td>
-                  <td>154</td>
-                  <td>411 MB</td>
-                </tr>
-                <tr style="border-top: 1px solid black;">
-                  <td>3DGS*</td>
-                  <td>27.46</td>
-                  <td>0.812</td>
-                  <td>0.222</td>
-                  <td>24m 07s</td>
-                  <td>120</td>
-                  <td>746 MB</td>
-                  <td>23.71</td>
-                  <td>0.845</td>
-                  <td>0.178</td>
-                  <td>13m 51s</td>
-                  <td>160</td>
-                  <td>432 MB</td>
-                </tr>
-                <tr>
-                  <td>Ours</td>
-                  <td>27.08</td>
-                  <td>0.798</td>
-                  <td>0.247</td>
-                  <td>33m 06s</td>
-                  <td><strong>128</strong></td>
-                  <td><strong>48.8 MB</strong></td>
-                  <td>23.32</td>
-                  <td>0.831</td>
-                  <td>0.201</td>
-                  <td>18m 20s</td>
-                  <td><strong>185</strong></td>
-                  <td><strong>39.4 MB</strong></td>
-                </tr>
-                <tr>
-                  <td>Ours+PP</td>
-                  <td>27.03</td>
-                  <td>0.797</td>
-                  <td>0.247</td>
-                  <td>-</td>
-                  <td>-</td>
-                  <td><strong>29.1 MB</strong></td>
-                  <td>23.32</td>
-                  <td>0.831</td>
-                  <td>0.202</td>
-                  <td>-</td>
-                  <td><strong>-</strong></td>
-                  <td><strong>20.9 MB</strong></td>
-                </tr>
+              <div class="w3-display-container w3-row w3-white w3-margin-bottom w3-center">
+                <embed src="images/tab1.png" style="width:98%">
+              </div>
 
-              </table>
+              <div class="w3-center">
+                <!-- <h2>Videos</h2> -->
+                <div style="width: 49.5%; display: inline-block;">
+                  <div class="w3-display-container w3-row w3-white w3-margin-bottom w3-center">
+                    <embed src="images/tab2.png" style="width:95%">
+                  </div>
+                </div>
+                <div style="width: 49.5%; display: inline-block;">
+                  <div class="w3-display-container w3-row w3-white w3-margin-bottom w3-center">
+                    <embed src="images/tab3.png" style="width:95%">
+                  </div>
+                </div>
+              </div>
 
-              <p></p>
-              <table>
-                <tr>
-                  <th>Dataset</th>
-                  <th colspan="6">Deep Blending</th>
-                </tr>
-                <tr style="border-top: 1px solid black;">
-                  <th>Method</th>
-                  <th>PSNR</th>
-                  <th>SSIM</th>
-                  <th>LPIPS</th>
-                  <th>Train</th>
-                  <th>FPS</th>
-                  <th>Storage</th>
-                </tr>
-                <tr style="border-top: 1px solid black;">
-                  <td>Plenoxels</td>
-                  <td>23.06</td>
-                  <td>0.795</td>
-                  <td>0.510</td>
-                  <td>27m 49s</td>
-                  <td>11.2</td>
-                  <td>2.7 GB</td>
-                </tr>
-                <tr>
-                  <td>INGP-base</td>
-                  <td>23.62</td>
-                  <td>0.797</td>
-                  <td>0.423</td>
-                  <td>06m 31s</td>
-                  <td>3.26</td>
-                  <td>13 MB</td>
-                </tr>
-                <tr>
-                  <td>INGP-big</td>
-                  <td>24.96</td>
-                  <td>0.817</td>
-                  <td>0.390</td>
-                  <td>08m 00s</td>
-                  <td>2.79</td>
-                  <td>48 MB</td>
-                </tr>
-                <tr>
-                  <td>Mip-NeRF 360</td>
-                  <td>29.40</td>
-                  <td>0.901</td>
-                  <td>0.245</td>
-                  <td>48h</td>
-                  <td>0.09</td>
-                  <td>8.6 MB</td>
-                </tr>
-                <tr>
-                  <td>3DGS</td>
-                  <td>29.41</td>
-                  <td>0.903</td>
-                  <td>0.243</td>
-                  <td>36m 02s</td>
-                  <td>137</td>
-                  <td>676 MB</td>
-                </tr>
-                <tr style="border-top: 1px solid black;">
-                  <td>3DGS*</td>
-                  <td>29.46</td>
-                  <td>0.900</td>
-                  <td>0.247</td>
-                  <td>21m 52s</td>
-                  <td>132</td>
-                  <td>663 MB</td>
-                </tr>
-                <tr>
-                  <td>Ours</td>
-                  <td><strong>29.79</strong></td>
-                  <td><strong>0.901</strong></td>
-                  <td>0.258</td>
-                  <td>27m 33s</td>
-                  <td><strong>181</strong></td>
-                  <td><strong>43.2 MB</strong></td>
-                </tr>
-                <tr>
-                  <td>Ours+PP </td>
-                  <td><strong>29.73</strong></td>
-                  <td>0.900</td>
-                  <td>0.258</td>
-                  <td>-</td>
-                  <td><strong>-</strong></td>
-                  <td><strong>23.8 MB</strong></td>
-                </tr>
-              </table>
+              <h3>Dynamic scenes</h3>
 
-              <!-- <p></p>
-<table>
-  <tr>
-    <th>Dataset</th>
-    <th colspan="4">NeRF-Synthetic</th>
-  </tr>
-  <tr style="border-top: 1px solid black;">
-    <th>Method</th>
-    <th>PSNR</th>
-    <th>Train Time</th>
-    <th>Storage</th>
-    <th>FPS</th>
-  </tr>
-  <tr style="border-top: 1px solid black;">
-    <td>3DGS</td>
-    <td>33.32*</td>
-    <td>6m 14s</td>
-    <td>68.1 MB</td>
-    <td>359</td>
-  </tr>
-  <tr>
-    <td>Ours</td>
-    <td>33.33</td>
-    <td>8m 04s (×1.29)</td>
-    <td><strong>5.54 MB (×0.08)</strong></td>
-    <td><strong>545 (×1.52)</strong></td>
-  </tr>
-</table> -->
+              <div class="w3-display-container w3-row w3-white w3-margin-bottom w3-center">
+                <embed src="images/fig_qual_d.png" style="width:100%">
+              </div>
+
+              <div class="w3-center">
+                <!-- <h2>Videos</h2> -->
+                <div style="width: 49.5%; display: inline-block;">
+                  <div class="w3-display-container w3-row w3-white w3-margin-bottom w3-center">
+                    <embed src="images/tab4.png" style="width:95%">
+                  </div>
+                </div>
+                <div style="width: 49.5%; display: inline-block;">
+                  <div class="w3-display-container w3-row w3-white w3-margin-bottom w3-center">
+                    <embed src="images/tab5.png" style="width:95%">
+                  </div>
+                </div>
+              </div>
+
 
 </div>
 
@@ -573,7 +344,7 @@
 <h2>Bibtex</h2>
 </div>
 <textarea class="bibtexsection" readonly>
-@article{lee2024c3dgs,
+@article{Lee_2024_C3DGS,
   title={Compact 3D Gaussian Splatting for Static and Dynamic Radiance Fields},
   author={Lee, Joo Chan and Rho, Daniel and Sun, Xiangyu and Ko, Jong Hwan and Park, Eunbyung},
   journal={arXiv preprint arXiv:2408.03822},
