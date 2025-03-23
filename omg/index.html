@@ -89,7 +89,7 @@
     </div>
   </section>
     <div class="container is-max-desktop">
-      <p>Optimized Minimal 3D Gaussian Splatting (OMG) focuses on minimizing storage requirements while using only a minimal number of Gaussian primitives, enabling scene representation under 5 MB while achieving 600+ FPS rendering!<br><br>
+      <p>Optimized Minimal 3D Gaussian Splatting (OMG) focuses on minimizing storage requirements while using only a minimal number of Gaussian primitives, <b>enabling scene representation (Mip-NeRF 360 27 PSNR) under 5 MB while achieving 600+ FPS rendering!</b><br><br>
       <div style="width: 48.4%; display: inline-block;">
         <video controls style="width:100%" autoplay loop playsinline muted>
           <source src="videos/stump.mp4" type="video/mp4">
@@ -108,6 +108,7 @@
       <h2 class="title is-3">Overview</h2>
       <img width="100%" src="./images/fig_demo.jpg"></img>
     <div class="content has-text-justified">
+    <p> We visualize qualitative examples (left) and the rate-distortion curve evaluated on the Mip-NeRF 360 dataset (right). All rendering speeds were measured on an NVIDIA RTX 3090 GPU, with values in parentheses in the left visualizations measured using an NVIDIA RTX 4090 GPU.</p>
     <p><br>
       Recent studies have shown that high-quality rendering can be achieved with a substantially reduced number of Gaussians when represented with high-precision attributes. Nevertheless, existing 3DGS compression methods still rely on a relatively large number of Gaussians, focusing primarily on attribute compression. This is because a smaller set of Gaussians becomes increasingly sensitive to lossy attribute compression, leading to severe quality degradation. Since the number of Gaussians is directly tied to computational costs, it is essential to reduce the number of Gaussians effectively rather than only optimizing storage.
       <br>
