@@ -1,0 +1,192 @@
+
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="description"
+    content="OMG"> 
+  <meta name="keywords" content="Representation Learning">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Optimized Minimal 3D Gaussian Splatting</title>
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet">
+
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="./static/js/fontawesome.all.min.js"></script>
+  <script src="./static/js/bulma-carousel.min.js"></script>
+  <script src="./static/js/bulma-slider.min.js"></script>
+  <script src="./static/js/index.js"></script>
+  <script src="./static/js/video_comparison.js"></script>
+  <link rel="icon"
+    href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>📄</text></svg>">
+</head>
+
+<body>
+  <section class="hero">
+    <div class="hero-body">
+      <div class="container is-max-desktop">
+        <div class="columns is-centered">
+          <div class="column has-text-centered">
+
+            <h1 class="title is-1 publication-title">Optimized Minimal 3D Gaussian Splatting</h1>
+            <div class="is-size-5 publication-authors">
+              <span class="author-block">
+                <a href="https://maincold2.github.io">Joo Chan Lee</a><sup>1</sup>,</span>
+              <span class="author-block">
+                <a href="https://iris.skku.edu/">Jong Hwan Ko</a><sup>1</sup>, and</span>
+              <span class="author-block">
+                <a href="https://silverbottlep.github.io/">Eunbyung Park</a><sup>2</sup></span>          
+            </div>
+
+            <div class="is-size-5 publication-authors">
+              <span class="author-block"><sup>1</sup>Sungkyunkwan University, <sup>2</sup>Yonsei University</span>
+            </div>
+
+            <div class="is-size-5 publication-venue">
+                  Preprint
+            </div>
+
+            <div class="column has-text-centered">
+              <div class="publication-links">
+                <!-- PDF Link. -->
+                <!-- <span class="link-block">
+                  <a href="" class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon">
+                      <i class="fas fa-file-pdf"></i>
+                    </span>
+                    <span>Paper</span>
+                  </a>
+                </span> -->
+                <span class="link-block">
+                  <a href="" class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon">
+                      <i class="ai ai-arxiv"></i>
+                    </span>
+                    <span>arXiv</span>
+                  </a>
+                </span>
+                <span class="link-block">
+                  <a href="https://github.com/maincold2/OMG" class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon">
+                        <i class="fab fa-github"></i>
+                    </span>
+                    <span>Code</span>
+                    </a>
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+<p>Optimized Minimal 3D Gaussian Splatting (OMG) focuses on minimizing storage requirements while using only a minimal number of Gaussian primitives, enabling scene representation under 5 MB while achieving 600+ FPS rendering!<br><br>
+    <div class="container is-max-desktop">
+      <div style="width: 48.4%; display: inline-block;">
+        <video controls style="width:100%" autoplay loop playsinline muted>
+          <source src="videos/stump.mp4" type="video/mp4">
+          Sorry, your browser doesn't support embedded videos.
+        </video>
+      </div>
+      <div style="width: 48.1%; display: inline-block;">
+        <video controls style="width:100%" autoplay loop playsinline muted>
+          <source src="videos/room.mp4" type="video/mp4">
+          Sorry, your browser doesn't support embedded videos.
+        </video>
+      </div>
+    </div>
+    <section class="section">
+    <div class="container is-max-desktop">
+      <h2 class="title is-3">Overview</h2>
+      <img width="100%" src="./images/fig_demo.jpg"></img>
+    <div class="content has-text-justified">
+    <p><br>
+      Recent studies have shown that high-quality rendering can be achieved with a substantially reduced number of Gaussians when represented with high-precision attributes. Nevertheless, existing 3DGS compression methods still rely on a relatively large number of Gaussians, focusing primarily on attribute compression. This is because a smaller set of Gaussians becomes increasingly sensitive to lossy attribute compression, leading to severe quality degradation. Since the number of Gaussians is directly tied to computational costs, it is essential to reduce the number of Gaussians effectively rather than only optimizing storage.
+      <br>
+      We propose Optimized Minimal Gaussians representation (OMG), which significantly reduces storage while using a minimal number of primitives. First, we determine the distinct Gaussian from the near ones, minimizing redundancy without sacrificing quality. Second, we propose a compact and precise attribute representation that efficiently captures both continuity and irregularity among primitives. Additionally, we propose a sub-vector quantization technique for improved irregularity representation, maintaining fast training with a negligible codebook size.
+      Extensive experiments demonstrate that OMG reduces storage requirements by nearly 50% compared to the previous state-of-the-art and enables 600+ FPS rendering while maintaining high rendering quality.
+    </p>
+    </div>
+  </div>
+  </section>
+
+  <hr/>
+
+  <section class="section">
+    <div class="container is-max-desktop">
+      <h2 class="title is-3">Architecture</h2>
+      <div class="content has-text-justified">
+      </div>
+      <img width="100%" src="./images/fig_arch.jpg"></img>
+      <br><br>
+      <img width="100%" src="./images/fig_svq.jpg"></img>
+      <br><br>
+      <p>
+        OMG learns per-Gaussian geometric and appearance features, applying Sub-Vector Quantization (SVQ) to all of them. The SVQ-applied geometric attributes are used for rendering, while the space feature based on the Gaussian center position is integrated into the appearance features to define the final appearance.
+      </p>
+      <!-- / Abstract. -->
+    </div>
+    </div>
+  </section>
+
+  <hr/>
+  
+  <section class="section">
+    <div class="container is-max-desktop">
+      <h2 class="title is-3">Results</h2>
+      <p>
+        OMG achieves remarkable efficiency alongside high performance, in terms of storage, rendering FPS, and training time.
+      </p>
+      <img width="100%" src="./images/fig_qual.jpg"></img>
+      <p align="center"><img width="65%" src="./images/tab_360.png"></img></p>
+      <img width="100%" src="./images/tab_tntdb.png"></img>
+    <div class="content has-text-justified">
+    </div>
+  </div>
+  </section>
+
+  <hr/>
+
+  <section class="section" id="BibTeX">
+    <div class="container is-max-desktop content">
+      <h2 class="title">BibTeX</h2>
+      <pre><code>@article{lee2025omg,
+  author    = {Lee, Joo Chan and Ko, Jong Hwan and Park, Eunbyung},
+  title     = {Optimized Minimal 3D Gaussian Splatting},
+  journal   = {arXiv preprint arXiv:},
+  year      = {2025},
+}</code></pre>
+    </div>
+  </section>
+
+
+  <footer class="footer">
+    <div class="container">
+      <div class="content has-text-centered">
+        <a class="icon-link" href="https://arxiv.org/abs/2402.18293">
+          <i class="fas fa-file-pdf"></i>
+        </a>
+      </div>
+      <div class="columns is-centered">
+        <div class="column is-8">
+          <div class="content">
+            <p>
+              This website design comes from <a href="https://keunhong.com/">Keunhong Park's</a> <a href="https://camp-nerf.github.io/"> project page</a>.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+</body>
+
+</html>

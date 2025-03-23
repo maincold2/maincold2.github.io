@@ -62,6 +62,47 @@
           <table
             style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;">
             <tbody>
+              <tr onmouseout="omg_stop()" onmouseover="omg_start()" bgcolor="#e1eafb">
+                <td style="padding:20px;width:23%;vertical-align:middle">
+                  <div class="one">
+                    <div class="two" id='omg_image'><video width=100% height=100% muted autoplay loop>
+                        <source src="omg/videos/xs_stump.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                      </video></div>
+                    <img src='omg/images/thumbnail.png' width="160" style='margin-top: 27px;'>
+                  </div>
+                  <script type="text/javascript">
+                    function omg_start() {
+                      document.getElementById('omg_image').style.opacity = "1";
+                    }
+
+                    function omg_stop() {
+                      document.getElementById('omg_image').style.opacity = "0";
+                    }
+                    dyc3dgs_stop()
+                  </script>
+                </td>
+                <td style="padding:20px;width:75%;vertical-align:middle">
+                  <a href="https://maincold2.github.io/omg/">
+                    <span class="papertitle">Optimized Minimal 3D Gaussian Splatting</span>
+                  </a>
+                  <br>
+                  <b>Joo Chan Lee</b>, Jong Hwan Ko, Eunbyung Park
+                  <br>
+                  <em>Preprint</em>
+                  <br>
+                  <div>
+                    <a href="https://maincold2.github.io/omg/">[Project page]</a>
+                    <a href="https://arxiv.org/abs/">[Paper]</a>
+                    <a href="https://github.com/maincold2/OMG">[Code]</a>
+                  </div>
+                  <br>
+                  <p>
+                    3D Gaussian splatting compression with a minimal number of Gaussian primitives.
+                  </p>
+                </td>
+              </tr>
+
               <tr onmouseout="dyc3dgs_stop()" onmouseover="dyc3dgs_start()" bgcolor="#e1eafb">
                 <td style="padding:20px;width:23%;vertical-align:middle">
                   <div class="one">
