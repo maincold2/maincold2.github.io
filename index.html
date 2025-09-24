@@ -62,43 +62,31 @@
           <table
             style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;">
             <tbody>
-              <tr onmouseout="omg_stop()" onmouseover="omg_start()" bgcolor="#e1eafb">
-                <td style="padding:20px;width:23%;vertical-align:middle">
-                  <div class="one">
-                    <div class="two" id='omg_image'><video width=100% height=100% muted autoplay loop>
-                        <source src="omg/videos/xs_stump.mp4" type="video/mp4">
-                        Your browser does not support the video tag.
-                      </video></div>
-                    <img src='omg/images/thumbnail.png' width="160" style='margin-top: 27px;'>
-                  </div>
-                  <script type="text/javascript">
-                    function omg_start() {
-                      document.getElementById('omg_image').style.opacity = "1";
-                    }
 
-                    function omg_stop() {
-                      document.getElementById('omg_image').style.opacity = "0";
-                    }
-                    dyc3dgs_stop()
-                  </script>
+               <tr>
+                <td style="padding:20px;width:25%;vertical-align:middle">
+                  <div class="one">
+                    <img src='img/diffo_qual.png' width="160"
+                      style='margin-top: 10px' ;>
+                  </div>
                 </td>
                 <td style="padding:20px;width:75%;vertical-align:middle">
-                  <a href="https://maincold2.github.io/omg/">
-                    <span class="papertitle">Optimized Minimal 3D Gaussian Splatting</span>
+                  <a href="https://arxiv.org/abs/2506.16572v2">
+                    <span class="papertitle">Single-step Diffusion for Image Compression at Ultra-Low Bitrates</span>
                   </a>
                   <br>
-                  <b>Joo Chan Lee</b>, Jong Hwan Ko, Eunbyung Park
+                  Chanung Park, <b>Joo Chan Lee</b>, Jong Hwan Ko
                   <br>
                   <em>Preprint</em>
                   <br>
                   <div>
-                    <a href="https://maincold2.github.io/omg/">[Project page]</a>
-                    <a href="https://arxiv.org/abs/2503.16924">[Paper]</a>
-                    <a href="https://github.com/maincold2/OMG">[Code]</a>
+                    <!-- <a href="https://xiangyu1sun.github.io/Factorize-3DGS/">[Project page]</a> -->
+                    <a href="https://arxiv.org/abs/2506.16572v2">[Paper]</a>
+                    <!-- <a href="https://github.com/a2jinhee/TruncQuant">[Code]</a> -->
                   </div>
                   <br>
                   <p>
-                    3D Gaussian splatting compression with a minimal number of Gaussian primitives.
+                    Single-step diffusion model for image compression at ultra-low bitrates.
                   </p>
                 </td>
               </tr>
@@ -140,6 +128,74 @@
                   <br>
                   <p>
                     Extending the compact 3D Gaussian splatting for dynamic scene representation.
+                  </p>
+                </td>
+              </tr>
+
+              <tr onmouseout="omg_stop()" onmouseover="omg_start()" bgcolor="#e1eafb">
+                <td style="padding:20px;width:23%;vertical-align:middle">
+                  <div class="one">
+                    <div class="two" id='omg_image'><video width=100% height=100% muted autoplay loop>
+                        <source src="omg/videos/xs_stump.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                      </video></div>
+                    <img src='omg/images/thumbnail.png' width="160" style='margin-top: 27px;'>
+                  </div>
+                  <script type="text/javascript">
+                    function omg_start() {
+                      document.getElementById('omg_image').style.opacity = "1";
+                    }
+
+                    function omg_stop() {
+                      document.getElementById('omg_image').style.opacity = "0";
+                    }
+                    dyc3dgs_stop()
+                  </script>
+                </td>
+                <td style="padding:20px;width:75%;vertical-align:middle">
+                  <a href="https://maincold2.github.io/omg/">
+                    <span class="papertitle">Optimized Minimal 3D Gaussian Splatting</span>
+                  </a>
+                  <br>
+                  <b>Joo Chan Lee</b>, Jong Hwan Ko, Eunbyung Park
+                  <br>
+                  <em>NeurIPS</em>, 2025
+                  <br>
+                  <div>
+                    <a href="https://maincold2.github.io/omg/">[Project page]</a>
+                    <a href="https://arxiv.org/abs/2503.16924">[Paper]</a>
+                    <a href="https://github.com/maincold2/OMG">[Code]</a>
+                  </div>
+                  <br>
+                  <p>
+                    3D Gaussian splatting compression with a minimal number of Gaussian primitives.
+                  </p>
+                </td>
+              </tr>
+
+              <tr>
+                <td style="padding:20px;width:25%;vertical-align:middle">
+                  <div class="one">
+                    <img src='https://iris.skku.edu/publication/c76_islped_2025/featured_hud4cfbb1bd6401072fb2664747ed854d7_854978_720x2500_fit_q75_h2_lanczos_3.webp' width="160"
+                      style='margin-top: 30px' ;>
+                  </div>
+                </td>
+                <td style="padding:20px;width:75%;vertical-align:middle">
+                  <a href="https://arxiv.org/abs/2506.11431">
+                    <span class="papertitle">TruncQuant: Truncation-Ready Quantization for DNNs with Flexible Weight Bit Precision</span>
+                  </a>
+                  <br>
+                  Jinhee Kim, Seoyeon Yoon, Taeho Lee, <b>Joo Chan Lee</b>, Kang Eun Jeon, Jong Hwan Ko
+                  <br>
+                  <em>ISLPED</em>, 2025
+                  <br>
+                  <div>
+                    <a href="https://arxiv.org/abs/2506.11431">[Paper]</a>
+                    <a href="https://github.com/a2jinhee/TruncQuant">[Code]</a>
+                  </div>
+                  <br>
+                  <p>
+                    Truncation-ready training scheme for flexible bit-precision bit-shifting in runtime.
                   </p>
                 </td>
               </tr>
